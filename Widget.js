@@ -1,3 +1,4 @@
+
 /*
 ##########################################################
   
@@ -13,7 +14,7 @@
   ##########################################################
 */
 
-
+async function main() {
 
 // < **** UserSettings ***** >
 let  Show_Beginning_Times="yes" //enter yes or no
@@ -432,3 +433,9 @@ widget.presentMedium()
  
 Script.setWidget(widget)
 Script.complete()
+}
+
+  //required by autoupdate module
+module.exports = {
+  main
+}
