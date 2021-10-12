@@ -13,13 +13,30 @@
   ##########################################################
 */
 
-/* V1.0 - update
-* Preference to show beginning or Jamaat times
-* Color changes according to time of day
-*/
- 
+//   V1.0 - Features added:
+// * Preference to show beginning or Jamaat times 
+// * Color changes according to time of day
+
+
 let scriptName = 'Salah Widget';
-let scriptUrl = 'https://raw.githubusercontent.com/maqbul/HSMC-PrayerTimeWidget/main/UpdateWidget.js';
+let scriptUrl = 'https://raw.githubusercontent.com/maqbul/HSMC-Salah-Widget/main/Widget.js'; 
+
+let fm =FileManager.local()
+
+
+// ***** SET OPTION *****
+var show_beginning_times="no" //change to yes or no
+
+
+
+let dir = fm.documentsDirectory()
+let path =fm.joinPath(dir, "show_beginning_preference.txt")
+
+//write preference to local file to be read from widget.js
+fm.writeString(path, show_beginning_times)
+
+//let showBeginning= fm.readString(path)
+//console.log ("saved "+showBeginning)  
 
 let modulePath = await downloadModule(scriptName, scriptUrl); // jshint ignore:line
 if (modulePath != null) {
@@ -40,7 +57,7 @@ async function downloadModule(scriptName, scriptUrl) {
   let moduleFilename = dayNumber.toString() + '.js';
   let modulePath = fm.joinPath(moduleDir, moduleFilename);
   if (fm.fileExists(modulePath)) {
-    console.log('running offline ' + moduleFilename);
+    console.log('Running local file ' + moduleFilename);
     return modulePath;
   } else {
     let [moduleFiles, moduleLatestFile] = getModuleVersions(scriptName);
@@ -63,6 +80,7 @@ async function downloadModule(scriptName, scriptUrl) {
     }
   }
 }
+ 
 
 function getModuleVersions(scriptName) {
   // returns all saved module versions and latest version of them
@@ -74,6 +92,8 @@ function getModuleVersions(scriptName) {
     let versions = dirContents.map(x => {
       if (x.endsWith('.js')) return parseInt(x.replace('.js', ''));
     });
+    
+    
     versions.sort(function(a, b) {
       return b - a;
     });
@@ -85,6 +105,9 @@ function getModuleVersions(scriptName) {
       moduleLatestFile = versions[0] + '.js';
       return [moduleFiles, moduleLatestFile];
     }
+    
   }
+  
+
   return [null, null];
 }
