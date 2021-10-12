@@ -18,20 +18,7 @@ var test="mis"
 async function main() {
 
 // < **** UserSettings ***** >
-
-  let fm =FileManager.local()
-  let dir = fm.documentsDirectory()
-  let path =fm.joinPath(dir, "show_beginning.txt")
-
- 
-  fm.writeString(path, "no") //save here
-  let preference= fm.readString(path)
- 
-//on main file
-//   console.log (Show_Beginning_Times)
-    
-  
-  let  Show_Beginning_Times=preference //enter yes or no
+ let  Show_Beginning_Times="no" //enter yes or no
 // < **** UserSettings ***** >
 
 console.log('Display Beginning: '+Show_Beginning_Times)
