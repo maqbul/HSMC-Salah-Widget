@@ -1,6 +1,22 @@
-// change path name to salah widget
-// add header here
-// works offline, checks for updates DAILY, code discreet
+/*
+##########################################################
+  
+  Salah Widget v1.0 
+  Developed by: Maqbul Yusuf
+  Email: maqbul.yusuf@sky.com
+  Date: 10/10/21
+  Compatible with iOS (scriptable app)
+     
+  Please do NOT remove or modify this header
+     
+  To check for updates or to leave feedback, tap on widget
+  ##########################################################
+*/
+
+/* V1.0 - update
+* Preference to show beginning or Jamaat times
+* Color changes according to time of day
+*/
  
 let scriptName = 'Salah Widget';
 let scriptUrl = 'https://raw.githubusercontent.com/maqbul/HSMC-PrayerTimeWidget/main/UpdateWidget.js';
