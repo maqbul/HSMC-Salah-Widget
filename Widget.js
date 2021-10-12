@@ -24,7 +24,7 @@ async function main() {
  
  let  Show_Beginning_Times=getPreference //get preference from local set in main module
   
- console.log('Display Beginning: '+Show_Beginning_Times)
+ console.log('Display beginning: '+Show_Beginning_Times)
   
 let widget = new ListWidget()
 
