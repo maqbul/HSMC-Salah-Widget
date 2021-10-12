@@ -13,7 +13,7 @@
   To check for updates or to leave feedback, tap on widget
   ##########################################################
 */
-var test="mis"
+//var test="mis"
 
 async function main() {
 
