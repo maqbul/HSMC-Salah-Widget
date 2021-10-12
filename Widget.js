@@ -25,13 +25,13 @@ async function main() {
 
  
   fm.writeString(path, "no") //save here
-  let Show_Beginning_Times= fm.readString(path)
+  let preference= fm.readString(path)
  
 //on main file
 //   console.log (Show_Beginning_Times)
     
   
-  let  Show_Beginning_Times=Show_Beginning_Times //enter yes or no
+  let  Show_Beginning_Times=preference //enter yes or no
 // < **** UserSettings ***** >
 
 console.log('Display Beginning: '+Show_Beginning_Times)
