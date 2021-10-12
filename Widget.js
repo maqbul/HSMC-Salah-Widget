@@ -23,7 +23,7 @@ async function main() {
   fm.writeString(path, "yes")
   let showBeginning= fm.readString(path)
   
-  console.log (showBeginning)  
+  console.log ("saved "+showBeginning)  
   
   
 
