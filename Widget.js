@@ -20,10 +20,10 @@ async function main() {
   let fm =FileManager.local()
   let dir = fm.documentsDirectory()
   let path =fm.joinPath(dir, "show_beginning_preference.txt")
-  fm.writeString(path, "yes")
+ // fm.writeString(path, "yes")
   let showBeginning= fm.readString(path)
   
-  console.log ("saved "+showBeginning)  
+  console.log ("savved "+showBeginning)  
   
   
 
