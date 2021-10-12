@@ -16,30 +16,22 @@
 
 async function main() {
   
+ //create local file to set preference 
+ let fm =FileManager.local()
+ let dir = fm.documentsDirectory()
+ let path =fm.joinPath(dir, "show_beginning_preference.txt") 
+ let getPreference=fm.readString(path)
+ 
+ let  Show_Beginning_Times=getPreference //get preference from local set in main module
   
-  let fm =FileManager.local()
-  let dir = fm.documentsDirectory()
-  let path =fm.joinPath(dir, "show_beginning_preference.txt")
- // fm.writeString(path, "yes")
-  let showBeginning= fm.readString(path)
+ console.log('Display Beginning: '+Show_Beginning_Times)
   
-  console.log ("savved "+showBeginning)  
-  
-  
-
-// < **** UserSettings ***** >
- let  Show_Beginning_Times=showBeginning //enter yes or no
-// < **** UserSettings ***** >
-
-console.log('Display Beginning: '+Show_Beginning_Times)
-
 let widget = new ListWidget()
 
 let url = "https://mis-productions.co.uk/prayertimes/hsmc/data.json";
 let r = new Request(url)
 let getPrayer = await r.loadJSON()
 var str=JSON.stringify(getPrayer)
-
 
 var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
@@ -118,24 +110,21 @@ var H = +maghrib12hr.substr(0, 2);
 var h = H % 12 || 12;
 var ampm = (H < 12 || H === 24) ? "" : "";
 maghrib12hr = h + maghrib12hr.substr(2, 3) + ampm;
-//console.log(maghrib12hr)
-
+ 
 
 var isha12hr = isha;
 var H = +isha12hr.substr(0, 2);
 var h = H % 12 || 12;
 var ampm = (H < 12 || H === 24) ? "" : "";
 isha12hr = h + isha12hr.substr(2, 3) + ampm;
-//console.log(isha12hr)
-
+ 
 
 var ishab12hr = ishab;
 var H = +ishab12hr.substr(0, 2);
 var h = H % 12 || 12;
 var ampm = (H < 12 || H === 24) ? "" : "";
 ishab12hr = h + ishab12hr.substr(2, 3) + ampm;
-//console.log(isha12hr)
-
+ 
 var nextprayerlabel="   "
 var nextprayername=""
 
@@ -194,8 +183,7 @@ nextprayername=asar12hr
  if (timenow>asarb&&timenow<maghribb){
  nextprayerlabel="MAGRIB  "//8 SPACE CHARS MAX
  nextprayername=maghrib12hr
-  console.log('ter ee')
-
+ 
  }
  
   
@@ -208,7 +196,6 @@ else if (timenow>maghribb&&timenow<ishab){
   nextprayername=ishab12hr
   nextprayerlabel="ISHA         "
   }
-
 
 
 //set tomorrows sunrise after isha
