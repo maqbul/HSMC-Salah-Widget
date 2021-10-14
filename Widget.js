@@ -248,6 +248,25 @@ gradient.colors = [
   ]
 }
 
+  
+  
+
+//feedback message
+widget.addSpacer(4)
+
+widget.addStack()
+var feedback = widget.addText('               PLEASE LEAVE FEEDBACK - TAP WIDGET')
+feedback.font = Font.headline()
+feedback.font = Font.lightSystemFont(10); 
+feedback.textOpacity=0 // On required day increase
+
+var todaysDate=now.getDate()
+console.log ('Todays date ' + todaysDate)
+
+if (todaysDate==7 || todaysDate == 14 || todaysDate == 21 ||todaysDate == 28){
+feedback.textOpacity=0.4 // On required day increase
+}
+
 
 
 widget.backgroundGradient = gradient
