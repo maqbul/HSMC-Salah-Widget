@@ -264,7 +264,7 @@ var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
 if (todaysDate==7 || todaysDate == 14 || todaysDate == 21 ||todaysDate == 28){
-feedback.textOpacity=0.4 // On required day increase
+feedback.textOpacity=0.7 // On required day increase
 }
 
 
