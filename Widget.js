@@ -5,7 +5,7 @@
   Salah Widget v1.0 
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
-  Date: 12/10/21
+  Date: 14/10/21
   Compatible with iOS (scriptable app)
      
   Please do NOT remove or modify this header
@@ -270,7 +270,7 @@ feedback.textOpacity=0.4 // On required day increase
 
 
 widget.backgroundGradient = gradient
-widget.addSpacer(25)
+widget.addSpacer(9)
 widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
 
 
