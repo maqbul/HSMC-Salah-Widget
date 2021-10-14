@@ -4,7 +4,7 @@
   Salah Widget v1.0 
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
-  Date: 11/10/21
+  Date: 12/10/21
   Compatible with iOS (scriptable app)
      
   Please do NOT remove or modify this header
