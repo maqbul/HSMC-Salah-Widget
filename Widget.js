@@ -255,7 +255,7 @@ gradient.colors = [
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('               IDEA? LEAVE FEEDBACK - TAP WIDGET')
+var feedback = widget.addText('               USEFUL? LEAVE FEEDBACK - TAP WIDGET')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 // On required day increase
