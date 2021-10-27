@@ -53,7 +53,7 @@ async function downloadModule(scriptName, scriptUrl) {
   let moduleDir = scriptPath.replace(fm.fileName(scriptPath, true), scriptName);
   if (fm.fileExists(moduleDir) && !fm.isDirectory(moduleDir)) fm.remove(moduleDir);
   if (!fm.fileExists(moduleDir)) fm.createDirectory(moduleDir);
-  let dayNumber = Math.floor(Date.now() / 1000 / 60 / 60 / 24);
+  let dayNumber = Math.floor(Date.now() / 1000 / 60 / 60 / 23);
   let moduleFilename = dayNumber.toString() + '.js';
   let modulePath = fm.joinPath(moduleDir, moduleFilename);
   if (fm.fileExists(modulePath)) {
