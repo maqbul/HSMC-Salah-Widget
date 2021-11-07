@@ -448,14 +448,16 @@ right.layoutVertically()
   
 widget.setPadding(50, 25, 0, 8) //changed
  
-
 if(!config.runsInWidget){
 widget.presentMedium()
 
 }
  
- //required by autoupdate module
+Script.setWidget(widget)
+Script.complete()
+}
+
+  //required by autoupdate module
 module.exports = {
   main
-}
-  
+} 
