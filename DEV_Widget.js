@@ -341,38 +341,39 @@ label.addSpacer(5)
 
 let fajrlabel = label.addText("fajar");
 fajrlabel.textColor =Color.white()
-   fajrlabel.font = Font.lightSystemFont(18); 
+   fajrlabel.font = Font.lightSystemFont(16); 
    fajrlabel.textOpacity=0.9
    fajrlabel.tintColor= Color.red()
-   label.addSpacer(21)//changed
+   label.addSpacer(37)//changed
 
 
 let zuhrlabel = label.addText("zuhr");
   zuhrlabel.textColor =Color.white()
-  zuhrlabel.font = Font.lightSystemFont(18); 
+  zuhrlabel.font = Font.lightSystemFont(16); 
   zuhrlabel.textOpacity=0.9
-  label.addSpacer(25) //changed 
+  label.addSpacer(20) //changed 
 
 
 let asarlabel = label.addText("asar");
  asarlabel.textColor =Color.white()
-    asarlabel.font = Font.lightSystemFont(18); 
+    asarlabel.font = Font.lightSystemFont(16); 
    asarlabel.textOpacity=0.9
  label.addSpacer(20) //changed for 12 hour digit 
 
 
 let maghriblabel = label.addText("magr");
   maghriblabel.textColor =Color.white() 
-  maghriblabel.font = Font.lightSystemFont(18); 
+  maghriblabel.font = Font.lightSystemFont(16); 
    maghriblabel.textOpacity=0.9
- label.addSpacer(28)
+ label.addSpacer(35)
 
 let ishalabel = label.addText("isha");
 ishalabel.textColor =Color.white()
-   ishalabel.font = Font.lightSystemFont(18); 
+   ishalabel.font = Font.lightSystemFont(16); 
    ishalabel.textOpacity=0.9
   label.addSpacer(1)
   
+   
 jamaat.addSpacer(1)
   if (Show_Beginning_Times=="yes"){
   var fajarjamaat = jamaat.addText(fajarb12hr) 
