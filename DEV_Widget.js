@@ -16,7 +16,7 @@
 
 
 
-//async function main() {
+async function main() {
 
 //copy parts from between this function only to widget.js and combine with original widget.js file on github
  
