@@ -341,7 +341,7 @@ label.addSpacer(5)
 
 let fajrlabel = label.addText("fajar");
 fajrlabel.textColor =Color.white()
-   fajrlabel.font = Font.lightSystemFont(16); 
+   fajrlabel.font = Font.lightSystemFont(15); 
    fajrlabel.textOpacity=0.9
    fajrlabel.tintColor= Color.red()
    label.addSpacer(37)//changed
@@ -349,27 +349,27 @@ fajrlabel.textColor =Color.white()
 
 let zuhrlabel = label.addText("zuhr");
   zuhrlabel.textColor =Color.white()
-  zuhrlabel.font = Font.lightSystemFont(16); 
+  zuhrlabel.font = Font.lightSystemFont(15); 
   zuhrlabel.textOpacity=0.9
   label.addSpacer(20) //changed 
 
 
 let asarlabel = label.addText("asar");
  asarlabel.textColor =Color.white()
-    asarlabel.font = Font.lightSystemFont(16); 
+    asarlabel.font = Font.lightSystemFont(15); 
    asarlabel.textOpacity=0.9
  label.addSpacer(20) //changed for 12 hour digit 
 
 
 let maghriblabel = label.addText("magr");
   maghriblabel.textColor =Color.white() 
-  maghriblabel.font = Font.lightSystemFont(16); 
+  maghriblabel.font = Font.lightSystemFont(15); 
    maghriblabel.textOpacity=0.9
  label.addSpacer(35)
 
 let ishalabel = label.addText("isha");
 ishalabel.textColor =Color.white()
-   ishalabel.font = Font.lightSystemFont(16); 
+   ishalabel.font = Font.lightSystemFont(15); 
    ishalabel.textOpacity=0.9
   label.addSpacer(1)
   
@@ -377,32 +377,32 @@ ishalabel.textColor =Color.white()
 jamaat.addSpacer(1)
   if (Show_Beginning_Times=="yes"){
   var fajarjamaat = jamaat.addText(fajarb12hr) 
-  fajarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  fajarjamaat.font = Font.boldMonospacedSystemFont(15) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
   jamaat.addSpacer(21) 
   
   var zoharjamaat = jamaat.addText(zoharb12hr) 
-  zoharjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  zoharjamaat.font = Font.boldMonospacedSystemFont(15) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
   jamaat.addSpacer(20) 
   
   var asarjamaat = jamaat.addText(asarb12hr) 
-  asarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  asarjamaat.font = Font.boldMonospacedSystemFont(15) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
   jamaat.addSpacer(20) 
   
   var maghribjamaat = jamaat.addText(maghrib12hr)
-  maghribjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  maghribjamaat.font = Font.boldMonospacedSystemFont(15) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
   jamaat.addSpacer(21) 
   
   
   var ishajamaat = jamaat.addText(ishab12hr) 
-  ishajamaat.font = Font.boldMonospacedSystemFont(16) ;
+  ishajamaat.font = Font.boldMonospacedSystemFont(15) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
   jamaat.addSpacer(30) 
@@ -410,33 +410,33 @@ ishajamaat.textOpacity=0.9
  else{
 
 var fajarjamaat = jamaat.addText(fajar12hr) 
-fajarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+fajarjamaat.font = Font.boldMonospacedSystemFont(15) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
 jamaat.addSpacer(23) 
 
 var zoharjamaat = jamaat.addText(zohar12hr) 
-zoharjamaat.font = Font.boldMonospacedSystemFont(16) ;
+zoharjamaat.font = Font.boldMonospacedSystemFont(15) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
 jamaat.addSpacer(17) 
 
 var asarjamaat = jamaat.addText(asar12hr) 
-asarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+asarjamaat.font = Font.boldMonospacedSystemFont(15) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
 jamaat.addSpacer(21) 
 
 
 var maghribjamaat = jamaat.addText(maghrib12hr) 
-maghribjamaat.font = Font.boldMonospacedSystemFont(16) ;
+maghribjamaat.font = Font.boldMonospacedSystemFont(15) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
 jamaat.addSpacer(21) 
 
 
 var ishajamaat = jamaat.addText(isha12hr) 
-ishajamaat.font = Font.boldMonospacedSystemFont(16) ;
+ishajamaat.font = Font.boldMonospacedSystemFont(15) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
 jamaat.addSpacer(2) 
