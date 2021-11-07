@@ -454,4 +454,8 @@ widget.presentMedium()
 
 }
  
+ //required by autoupdate module
+module.exports = {
+  main
+}
   
