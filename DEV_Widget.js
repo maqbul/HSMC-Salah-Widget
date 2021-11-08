@@ -2,7 +2,7 @@
 /*
 ##########################################################
   
-  Salah Widget v1.1 - 071121
+  Salah Widget v1.1 - 031121
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Date: 14/10/21
@@ -16,313 +16,11 @@
 
 
 
-async function main() {
+async function main() { //uncomment when publish
 
 //copy parts from between this function only to widget.js and combine with original widget.js file on github
  
   
-  
-  
-  
-  
-  
-  
- //create local file to set preference 
- let fm =FileManager.local()
-
-var fajarb12hr = fajarb;
-var H = +fajarb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-fajarb12hr = h + fajarb12hr.substr(2, 3) + ampm;
-
-
-var sunrise12hr = sunrise;
-var H = +sunrise12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-sunrise12hr = h + sunrise12hr.substr(2, 3) + ampm;
-
-
-var zohar12hr = zohar;
-var H = +zohar12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-zohar12hr = h + zohar12hr.substr(2, 3) + ampm;
- 
-
-var zoharb12hr = zoharb;
-var H = +zoharb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-zoharb12hr = h + zoharb12hr.substr(2, 3) + ampm;
- 
-
-var asar12hr = asar;
-var H = +asar12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-asar12hr = h + asar12hr.substr(2, 3) + ampm;
-
-var asarb12hr = asarb;
-var H = +asarb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-asarb12hr = h + asarb12hr.substr(2, 3) + ampm;
- 
-
-var maghrib12hr = maghribb;
-var H = +maghrib12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-maghrib12hr = h + maghrib12hr.substr(2, 3) + ampm;
- 
-
-var isha12hr = isha;
-var H = +isha12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-isha12hr = h + isha12hr.substr(2, 3) + ampm;
- 
-
-var ishab12hr = ishab;
-var H = +ishab12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-ishab12hr = h + ishab12hr.substr(2, 3) + ampm;
- 
-var nextprayerlabel="   "
-var nextprayername=""
-
-let time = new Date()
-h=time.getHours()
-m=time.getMinutes()
-
-if (h<10){h="0"+h}
-if (m<10){m="0"+m}
-
-timenow=h+':'+m
- 
-//timenow="19:00"
-
-console.log('time: '+ timenow )
- 
-//check beginning preference and change display
-if (timenow<fajarb&&Show_Beginning_Times!="yes"){
-  nextprayername=fajar12hr
-  nextprayerlabel="FAJAR    "//9 CHAR SPACES
-  }
-  else if (timenow<fajarb){
-  nextprayername=sunrise12hr
-  nextprayerlabel="SUNRISE"
-  }
-  
-  if (timenow>fajar){
-  nextprayername=sunrise12hr
-  nextprayerlabel="SUNRISE"//9 CHAR SPACES
-  }
-   
-
-if (timenow>sunrise&&timenow<zohar&&Show_Beginning_Times!='yes'){
-  nextprayername=zohar12hr
-  nextprayerlabel="ZOHAR    "//8 CHAR SPACES
-  }
-  
-  else if (timenow>sunrise&&timenow<zoharb){
-  nextprayername=zoharb12hr
-  nextprayerlabel="ZOHAR    "
-  
-  }
-  
-if (timenow>zohar&&timenow<asar&&Show_Beginning_Times!='yes'){
- nextprayerlabel="ASAR       "//8 SPACE CHARS MAX
-nextprayername=asar12hr
-}  
-  
-  
-  else if(timenow>zoharb&&timenow<asarb){
-  nextprayername=asarb12hr
-  nextprayerlabel="ASAR       "
-  }
-
-  
- if (timenow>asarb&&timenow<maghribb){
- nextprayerlabel="MAGRIB  "//8 SPACE CHARS MAX
- nextprayername=maghrib12hr
- 
- }
- 
-  
- if (timenow>maghribb&&timenow<isha&&  Show_Beginning_Times!='yes'){
- nextprayerlabel="ISHA         "//8 SPACE CHARS MAX
- nextprayername=isha12hr
-}
-
-else if (timenow>maghribb&&timenow<ishab){
-  nextprayername=ishab12hr
-  nextprayerlabel="ISHA         "
-  }
-
-
-//set tomorrows sunrise after isha
-var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise.substring(1,5)
-
-if (timenow>isha){
-  nextprayername=sunriseTomorrow
-  nextprayerlabel="SUNRISE"//8 CHAR SPACES
-  }
-
-let nextprayer=widget.addText(
-nextprayerlabel + '                         '+ nextprayername)
-nextprayer.textColor =Color.white()
-nextprayer.font = Font.boldMonospacedSystemFont(23)
-  
-
-let gradient = new LinearGradient()
-  gradient.locations = [0, 1]
-  
- if (timenow>=fajar&&timenow<sunrise){
-  //sunrise
-  gradient.colors = [
-    new Color("d7816a"),
-    new Color("bd4f6c")
-  ]
-}
-
-
-else if (timenow>=sunrise&&timenow<asar){
- //day time until asar 
- gradient.colors = [
-    new Color("18A8D8"),
-    new Color("6048C0")
-  ] 
-}
-else if(timenow>=asar&&timenow<maghribb){
-//sunset
-gradient.colors = [
-    new Color("ee9617"),
-    new Color("fe5858")
-  ]
-}
-
-
-else if(timenow>=maghribb){
-//night
-gradient.colors = [
-    new Color("353535"),
-    new Color("030303")
-  ]
-}
-
-  
-  
-
-//feedback message
-widget.addSpacer(4)
-
-widget.addStack()
-var feedback = widget.addText('               USEFUL? LEAVE FEEDBACK - TAP WIDGET')
-feedback.font = Font.headline()
-feedback.font = Font.lightSystemFont(10); 
-feedback.textOpacity=0 // On required day increase
-
-var todaysDate=now.getDate()
-console.log ('Todays date ' + todaysDate)
-
-if (todaysDate==7 || todaysDate == 14 || todaysDate == 20 ||todaysDate == 26){
-feedback.textOpacity=0.2 // On required day increase
-}
-
-
-
-widget.backgroundGradient = gradient
-widget.addSpacer(9)
-widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
-
-
-let main = widget.addStack()
-let left = main.addStack()
-let right = main.addStack()
-let middle = main.addStack()
-
-let spacing = middle.addStack()
-
-let icon = left.addStack()
-let jamaat = middle.addStack()
-let label = middle.addStack()
-
-let rightTitle = right.addStack()
-let rightContent = right.addStack()
-
-spacing.addSpacer(310) // changed
-main.addStack()
-main.addSpacer(10)
-
-let fajarIcon = SFSymbol.named("sun.haze.fill")
-    let docsElement1 = icon.addImage(fajarIcon.image)
-    docsElement1.imageSize = new Size(40, 23)
-    docsElement1.tintColor = Color.white()
-    docsElement1.imageOpacity = 0.7
-    
-      
-    let zoharIcon = SFSymbol.named("sun.max.fill")
-    let docsElement2 = icon.addImage(zoharIcon.image)
-    docsElement2.imageSize = new Size(80, 22)
-    docsElement2.tintColor = Color.white()
-    docsElement2.imageOpacity = 0.7
-    widget.addSpacer(20)
-
-let asarIcon = SFSymbol.named("sun.max.fill")
-    let docsElement3 = icon.addImage(asarIcon.image)
-    docsElement3.imageSize = new Size(30, 22)
-    docsElement3.tintColor = Color.white()
-    docsElement3.imageOpacity = 0.7
- 
- 
-let maghribIcon = SFSymbol.named("sunset.fill")
-    let docsElement4 = icon.addImage(maghribIcon.image)
-    docsElement4.imageSize = new Size(89, 22)
-    docsElement4.tintColor = Color.white()
-
-   
-jamaat.addSpacer(1)
-  if (Show_Beginning_Times=="yes"){
-  var fajarjamaat = jamaat.addText(fajarb12hr) 
-  fajarjamaat.font = Font.boldMonospacedSystemFont(15) ;
-fajarjamaat.textColor = Color.white()
-fajarjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
-  
-  var zoharjamaat = jamaat.addText(zoharb12hr) 
-  zoharjamaat.font = Font.boldMonospacedSystemFont(15) ;
-zoharjamaat.textColor = Color.white()
-zoharjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
-  
-  var asarjamaat = jamaat.addText(asarb12hr) 
-  asarjamaat.font = Font.boldMonospacedSystemFont(15) ;
-asarjamaat.textColor = Color.white()
-asarjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
-  
-  var maghribjamaat = jamaat.addText(maghrib12hr)
-  maghribjamaat.font = Font.boldMonospacedSystemFont(15) ;
-maghribjamaat.textColor = Color.white()
-maghribjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
-  
-  
-  var ishajamaat = jamaat.addText(ishab12hr) 
-  ishajamaat.font = Font.boldMonospacedSystemFont(15) ;
-ishajamaat.textColor = Color.white()
-ishajamaat.textOpacity=0.9
-  jamaat.addSpacer(30) 
-}
- else{
-
-var fajarjamaat = jamaat.addText(fajar12hr) 
-fajarjamaat.font = Font.boldMonospacedSystemFont(15) ;
-
  //create local file to set preference 
  let fm =FileManager.local()
  let dir = fm.documentsDirectory()
@@ -686,7 +384,10 @@ if(!config.runsInWidget){
 widget.presentMedium()
 
 }
+
  
+// uncomment when publishing
+
 Script.setWidget(widget)
 Script.complete()
 }
@@ -695,3 +396,6 @@ Script.complete()
 module.exports = {
   main
 } 
+ 
+
+  
