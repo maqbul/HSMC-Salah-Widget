@@ -2,7 +2,7 @@
 /*
 ##########################################################
   
-  Salah Widget v1.1 - 031121
+  Salah Widget v1.1 - 081121
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Date: 14/10/21
@@ -15,10 +15,10 @@
 */
 
 
+//copy from async to end of this file to github DEV_Widget.js to test then copy to Widget.js if all ok.
+ 
 
 async function main() { //uncomment when publish
-
-//copy parts from between this function only to widget.js and combine with original widget.js file on github
  
   
  //create local file to set preference 
@@ -74,7 +74,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="19:00"
+//timenow="16:30"
 
 console.log('time: '+ timenow )
  
@@ -225,7 +225,7 @@ let label = middle.addStack()
 let rightTitle = right.addStack()
 let rightContent = right.addStack()
 
-spacing.addSpacer(305) // changed
+spacing.addSpacer(300) // changed
 main.addStack()
 main.addSpacer(10)
 
@@ -241,18 +241,18 @@ let fajarIcon = SFSymbol.named("sun.haze.fill")
     docsElement2.imageSize = new Size(80, 22)
     docsElement2.tintColor = Color.white()
     docsElement2.imageOpacity = 0.7
-    widget.addSpacer(20)
+    widget.addSpacer(21)
 
 let asarIcon = SFSymbol.named("sun.max.fill")
     let docsElement3 = icon.addImage(asarIcon.image)
-    docsElement3.imageSize = new Size(30, 22)
+    docsElement3.imageSize = new Size(34, 22)
     docsElement3.tintColor = Color.white()
     docsElement3.imageOpacity = 0.7
  
  
 let maghribIcon = SFSymbol.named("sunset.fill")
     let docsElement4 = icon.addImage(maghribIcon.image)
-    docsElement4.imageSize = new Size(89, 22)
+    docsElement4.imageSize = new Size(94, 22)
     docsElement4.tintColor = Color.white()
     docsElement4.imageOpacity = 0.7
     
@@ -261,7 +261,7 @@ left.addSpacer(10)
 
 let ishaIcon = SFSymbol.named("moon.fill")
     let docsElement5 = icon.addImage(ishaIcon.image)
-    docsElement5.imageSize = new Size(40, 22)
+    docsElement5.imageSize = new Size(23, 22)
     docsElement5.tintColor = Color.white()
     docsElement5.imageOpacity = 0.5
  
@@ -307,69 +307,69 @@ ishalabel.textColor =Color.white()
 jamaat.addSpacer(1)
   if (Show_Beginning_Times=="yes"){
   var fajarjamaat = jamaat.addText(fajarb) 
-  fajarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  fajarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
+  jamaat.addSpacer(12) 
   
   var zoharjamaat = jamaat.addText(zoharb) 
-  zoharjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  zoharjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
+  jamaat.addSpacer(16) 
   
   var asarjamaat = jamaat.addText(asarb) 
-  asarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  asarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
+  jamaat.addSpacer(17) 
   
   var maghribjamaat = jamaat.addText(maghribb)
-  maghribjamaat.font = Font.boldMonospacedSystemFont(16) ;
+  maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
+  jamaat.addSpacer(18) 
   
   
   var ishajamaat = jamaat.addText(ishab) 
-  ishajamaat.font = Font.boldMonospacedSystemFont(16) ;
+  ishajamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
-  jamaat.addSpacer(30) 
+  jamaat.addSpacer(18) 
 }
  else{
 
 var fajarjamaat = jamaat.addText(fajar) 
-fajarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+fajarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
-jamaat.addSpacer(23) 
+jamaat.addSpacer(12) 
 
 var zoharjamaat = jamaat.addText(zohar) 
-zoharjamaat.font = Font.boldMonospacedSystemFont(16) ;
+zoharjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
-jamaat.addSpacer(17) 
+jamaat.addSpacer(16) 
 
 var asarjamaat = jamaat.addText(asar) 
-asarjamaat.font = Font.boldMonospacedSystemFont(16) ;
+asarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
-jamaat.addSpacer(21) 
+jamaat.addSpacer(17) 
 
 
 var maghribjamaat = jamaat.addText(maghrib) 
-maghribjamaat.font = Font.boldMonospacedSystemFont(16) ;
+maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-jamaat.addSpacer(21) 
+jamaat.addSpacer(18) 
 
 
 var ishajamaat = jamaat.addText(isha) 
-ishajamaat.font = Font.boldMonospacedSystemFont(16) ;
+ishajamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
-jamaat.addSpacer(2) 
+jamaat.addSpacer(18) 
 }
 
 main.layoutVertically()
@@ -386,7 +386,7 @@ widget.presentMedium()
 }
 
  
-// uncomment when publishing
+/* uncomment when publishing
 
 Script.setWidget(widget)
 Script.complete()
