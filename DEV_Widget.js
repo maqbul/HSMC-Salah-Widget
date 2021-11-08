@@ -386,7 +386,7 @@ widget.presentMedium()
 }
 
  
- uncomment when publishing
+// uncomment when publishing
 
 Script.setWidget(widget)
 Script.complete()
