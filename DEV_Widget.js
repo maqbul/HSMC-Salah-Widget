@@ -19,8 +19,7 @@
  
 
 async function main() { //uncomment when publish
- 
-  
+
  //create local file to set preference 
  let fm =FileManager.local()
  let dir = fm.documentsDirectory()
@@ -41,7 +40,7 @@ var str=JSON.stringify(getPrayer)
 var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
-var oneDay = 1000 * 60 * 60 * 12;
+var oneDay = 1000 * 60 * 60 * 24;
 var daynumber = Math.floor(diff / oneDay);
 
 console.log('Day number: ' + daynumber);
@@ -252,7 +251,7 @@ let asarIcon = SFSymbol.named("sun.max.fill")
  
 let maghribIcon = SFSymbol.named("sunset.fill")
     let docsElement4 = icon.addImage(maghribIcon.image)
-    docsElement4.imageSize = new Size(94, 22)
+    docsElement4.imageSize = new Size(88, 22)
     docsElement4.tintColor = Color.white()
     docsElement4.imageOpacity = 0.7
     
@@ -261,7 +260,7 @@ left.addSpacer(10)
 
 let ishaIcon = SFSymbol.named("moon.fill")
     let docsElement5 = icon.addImage(ishaIcon.image)
-    docsElement5.imageSize = new Size(23, 22)
+    docsElement5.imageSize = new Size(32, 22)
     docsElement5.tintColor = Color.white()
     docsElement5.imageOpacity = 0.5
  
@@ -385,8 +384,7 @@ widget.presentMedium()
 
 }
 
- 
- 
+
 Script.setWidget(widget)
 Script.complete()
 }
@@ -396,5 +394,3 @@ module.exports = {
   main
 } 
  
-
-  
