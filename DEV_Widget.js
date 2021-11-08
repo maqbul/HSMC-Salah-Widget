@@ -119,7 +119,7 @@ nextprayername=asar
   
  if (timenow>asarb&&timenow<maghribb){
  nextprayerlabel="MAGRIB  "//8 SPACE CHARS MAX
- nextprayername=maghrib
+ nextprayername=maghribb
  
  }
  
@@ -225,7 +225,7 @@ let label = middle.addStack()
 let rightTitle = right.addStack()
 let rightContent = right.addStack()
 
-spacing.addSpacer(310) // changed
+spacing.addSpacer(305) // changed
 main.addStack()
 main.addSpacer(10)
 
@@ -275,28 +275,28 @@ fajrlabel.textColor =Color.white()
    fajrlabel.font = Font.lightSystemFont(16); 
    fajrlabel.textOpacity=0.9
    fajrlabel.tintColor= Color.red()
-   label.addSpacer(37)//changed
+   label.addSpacer(27)//changed
 
 
 let zuhrlabel = label.addText("zuhr");
   zuhrlabel.textColor =Color.white()
   zuhrlabel.font = Font.lightSystemFont(16); 
   zuhrlabel.textOpacity=0.9
-  label.addSpacer(20) //changed 
+  label.addSpacer(26) //changed 
 
 
 let asarlabel = label.addText("asar");
  asarlabel.textColor =Color.white()
     asarlabel.font = Font.lightSystemFont(16); 
    asarlabel.textOpacity=0.9
- label.addSpacer(20) //changed for 12 hour digit 
+ label.addSpacer(29) //changed for 12 hour digit 
 
 
 let maghriblabel = label.addText("magr");
   maghriblabel.textColor =Color.white() 
   maghriblabel.font = Font.lightSystemFont(16); 
    maghriblabel.textOpacity=0.9
- label.addSpacer(35)
+ label.addSpacer(27)
 
 let ishalabel = label.addText("isha");
 ishalabel.textColor =Color.white()
@@ -386,7 +386,7 @@ widget.presentMedium()
 }
 
  
-// uncomment when publishing
+ uncomment when publishing
 
 Script.setWidget(widget)
 Script.complete()
