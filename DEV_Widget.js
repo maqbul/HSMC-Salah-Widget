@@ -135,7 +135,7 @@ else if (timenow>maghribb&&timenow<ishab){
 
 
 //set tomorrows sunrise after isha
-var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise.substring(1,5)
+var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 
 if (timenow>isha){
   nextprayername=sunriseTomorrow
