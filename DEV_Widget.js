@@ -386,8 +386,7 @@ widget.presentMedium()
 }
 
  
-/* uncomment when publishing
-
+ 
 Script.setWidget(widget)
 Script.complete()
 }
