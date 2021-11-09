@@ -360,7 +360,7 @@ asarjamaat.textOpacity=0.9
 jamaat.addSpacer(17) 
 
 
-var maghribjamaat = jamaat.addText(maghrib) 
+var maghribjamaat = jamaat.addText(maghribb) 
 maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
