@@ -2,7 +2,7 @@
 /*
 ##########################################################
   
-  Salah Widget v1.0 
+  Salah Widget v1.1 - 091121
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Date: 14/10/21
@@ -11,11 +11,18 @@
   Please do NOT remove or modify this header
      
   To check for updates or to leave feedback, tap on widget
-  ##########################################################
-*/
 
-async function main() {
-  
+
+   change log:
+ * formatted to show 24 hour times
+
+
+##########################################################
+*/
+ 
+
+async function main() { 
+
  //create local file to set preference 
  let fm =FileManager.local()
  let dir = fm.documentsDirectory()
@@ -55,76 +62,8 @@ var zohar=getPrayer[daynumber].jamaat.zohar
 var asar=getPrayer[daynumber].jamaat.asar
 var maghrib=getPrayer[daynumber].jamaat.maghribb
 var isha=getPrayer[daynumber].jamaat.isha
-
-
-//12 hour formatting
-var fajar12hr = fajar;
-var H = +fajar12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-fajar12hr = h + fajar12hr.substr(2, 3) + ampm;
-
-var fajarb12hr = fajarb;
-var H = +fajarb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-fajarb12hr = h + fajarb12hr.substr(2, 3) + ampm;
-
-
-var sunrise12hr = sunrise;
-var H = +sunrise12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-sunrise12hr = h + sunrise12hr.substr(2, 3) + ampm;
-
-
-var zohar12hr = zohar;
-var H = +zohar12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-zohar12hr = h + zohar12hr.substr(2, 3) + ampm;
  
-
-var zoharb12hr = zoharb;
-var H = +zoharb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-zoharb12hr = h + zoharb12hr.substr(2, 3) + ampm;
- 
-
-var asar12hr = asar;
-var H = +asar12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-asar12hr = h + asar12hr.substr(2, 3) + ampm;
-
-var asarb12hr = asarb;
-var H = +asarb12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-asarb12hr = h + asarb12hr.substr(2, 3) + ampm;
- 
-
-var maghrib12hr = maghribb;
-var H = +maghrib12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-maghrib12hr = h + maghrib12hr.substr(2, 3) + ampm;
- 
-
-var isha12hr = isha;
-var H = +isha12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-isha12hr = h + isha12hr.substr(2, 3) + ampm;
- 
-
-var ishab12hr = ishab;
-var H = +ishab12hr.substr(0, 2);
-var h = H % 12 || 12;
-var ampm = (H < 12 || H === 24) ? "" : "";
-ishab12hr = h + ishab12hr.substr(2, 3) + ampm;
- 
+   
 var nextprayerlabel="   "
 var nextprayername=""
 
@@ -137,69 +76,69 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="19:00"
+//timenow="15:30"
 
 console.log('time: '+ timenow )
  
 //check beginning preference and change display
 if (timenow<fajarb&&Show_Beginning_Times!="yes"){
-  nextprayername=fajar12hr
+  nextprayername=fajar
   nextprayerlabel="FAJAR    "//9 CHAR SPACES
   }
   else if (timenow<fajarb){
-  nextprayername=sunrise12hr
+  nextprayername=sunrise
   nextprayerlabel="SUNRISE"
   }
   
   if (timenow>fajar){
-  nextprayername=sunrise12hr
+  nextprayername=sunrise
   nextprayerlabel="SUNRISE"//9 CHAR SPACES
   }
    
 
 if (timenow>sunrise&&timenow<zohar&&Show_Beginning_Times!='yes'){
-  nextprayername=zohar12hr
-  nextprayerlabel="ZOHAR    "//8 CHAR SPACES
+  nextprayername=zohar
+  nextprayerlabel="ZOHAR  "//8 CHAR SPACES
   }
   
   else if (timenow>sunrise&&timenow<zoharb){
-  nextprayername=zoharb12hr
-  nextprayerlabel="ZOHAR    "
+  nextprayername=zoharb
+  nextprayerlabel="ZOHAR  "
   
   }
   
 if (timenow>zohar&&timenow<asar&&Show_Beginning_Times!='yes'){
- nextprayerlabel="ASAR       "//8 SPACE CHARS MAX
-nextprayername=asar12hr
+ nextprayerlabel="ASAR      "//8 SPACE CHARS MAX
+nextprayername=asar
 }  
   
   
   else if(timenow>zoharb&&timenow<asarb){
-  nextprayername=asarb12hr
-  nextprayerlabel="ASAR       "
+  nextprayername=asarb
+  nextprayerlabel="ASAR     "
   }
 
   
  if (timenow>asarb&&timenow<maghribb){
- nextprayerlabel="MAGRIB  "//8 SPACE CHARS MAX
- nextprayername=maghrib12hr
+ nextprayerlabel="MAGRIB"//8 SPACE CHARS MAX
+ nextprayername=maghribb
  
  }
  
   
  if (timenow>maghribb&&timenow<isha&&  Show_Beginning_Times!='yes'){
- nextprayerlabel="ISHA         "//8 SPACE CHARS MAX
- nextprayername=isha12hr
+ nextprayerlabel="ISHA        "//8 SPACE CHARS MAX
+ nextprayername=isha
 }
 
 else if (timenow>maghribb&&timenow<ishab){
-  nextprayername=ishab12hr
-  nextprayerlabel="ISHA         "
+  nextprayername=ishab
+  nextprayerlabel="ISHA        "
   }
 
 
 //set tomorrows sunrise after isha
-var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise.substring(1,5)
+var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 
 if (timenow>isha){
   nextprayername=sunriseTomorrow
@@ -288,7 +227,7 @@ let label = middle.addStack()
 let rightTitle = right.addStack()
 let rightContent = right.addStack()
 
-spacing.addSpacer(23)
+spacing.addSpacer(300) // changed
 main.addStack()
 main.addSpacer(10)
 
@@ -304,18 +243,18 @@ let fajarIcon = SFSymbol.named("sun.haze.fill")
     docsElement2.imageSize = new Size(80, 22)
     docsElement2.tintColor = Color.white()
     docsElement2.imageOpacity = 0.7
-    widget.addSpacer(20)
+    widget.addSpacer(21)
 
 let asarIcon = SFSymbol.named("sun.max.fill")
     let docsElement3 = icon.addImage(asarIcon.image)
-    docsElement3.imageSize = new Size(30, 22)
+    docsElement3.imageSize = new Size(34, 22)
     docsElement3.tintColor = Color.white()
     docsElement3.imageOpacity = 0.7
  
  
 let maghribIcon = SFSymbol.named("sunset.fill")
     let docsElement4 = icon.addImage(maghribIcon.image)
-    docsElement4.imageSize = new Size(89, 22)
+    docsElement4.imageSize = new Size(88, 22)
     docsElement4.tintColor = Color.white()
     docsElement4.imageOpacity = 0.7
     
@@ -324,115 +263,115 @@ left.addSpacer(10)
 
 let ishaIcon = SFSymbol.named("moon.fill")
     let docsElement5 = icon.addImage(ishaIcon.image)
-    docsElement5.imageSize = new Size(40, 22)
+    docsElement5.imageSize = new Size(32, 22)
     docsElement5.tintColor = Color.white()
     docsElement5.imageOpacity = 0.5
  
       
 //bottom spacing
 widget.addSpacer(20)
-label.addSpacer(3)
+label.addSpacer(5)
 
 let fajrlabel = label.addText("fajar");
 fajrlabel.textColor =Color.white()
-   fajrlabel.font = Font.lightSystemFont(18); 
+   fajrlabel.font = Font.lightSystemFont(16); 
    fajrlabel.textOpacity=0.9
    fajrlabel.tintColor= Color.red()
-   label.addSpacer(26)
+   label.addSpacer(27)//changed
 
 
 let zuhrlabel = label.addText("zuhr");
   zuhrlabel.textColor =Color.white()
-  zuhrlabel.font = Font.lightSystemFont(18); 
+  zuhrlabel.font = Font.lightSystemFont(16); 
   zuhrlabel.textOpacity=0.9
-  label.addSpacer(20)
+  label.addSpacer(26) //changed 
 
 
 let asarlabel = label.addText("asar");
  asarlabel.textColor =Color.white()
-    asarlabel.font = Font.lightSystemFont(18); 
+    asarlabel.font = Font.lightSystemFont(16); 
    asarlabel.textOpacity=0.9
- label.addSpacer(24)
+ label.addSpacer(29) //changed for 12 hour digit 
 
 
 let maghriblabel = label.addText("magr");
   maghriblabel.textColor =Color.white() 
-  maghriblabel.font = Font.lightSystemFont(18); 
+  maghriblabel.font = Font.lightSystemFont(16); 
    maghriblabel.textOpacity=0.9
- label.addSpacer(22)
+ label.addSpacer(27)
 
 let ishalabel = label.addText("isha");
 ishalabel.textColor =Color.white()
-   ishalabel.font = Font.lightSystemFont(18); 
+   ishalabel.font = Font.lightSystemFont(16); 
    ishalabel.textOpacity=0.9
   label.addSpacer(1)
   
 jamaat.addSpacer(1)
   if (Show_Beginning_Times=="yes"){
-  var fajarjamaat = jamaat.addText(fajarb12hr) 
-  fajarjamaat.font = Font.boldMonospacedSystemFont(17) ;
+  var fajarjamaat = jamaat.addText(fajarb) 
+  fajarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
+  jamaat.addSpacer(12) 
   
-  var zoharjamaat = jamaat.addText(zoharb12hr) 
-  zoharjamaat.font = Font.boldMonospacedSystemFont(17) ;
+  var zoharjamaat = jamaat.addText(zoharb) 
+  zoharjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
+  jamaat.addSpacer(16) 
   
-  var asarjamaat = jamaat.addText(asarb12hr) 
-  asarjamaat.font = Font.boldMonospacedSystemFont(17) ;
+  var asarjamaat = jamaat.addText(asarb) 
+  asarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
-  jamaat.addSpacer(20) 
+  jamaat.addSpacer(17) 
   
-  var maghribjamaat = jamaat.addText(maghrib12hr)
-  maghribjamaat.font = Font.boldMonospacedSystemFont(17) ;
+  var maghribjamaat = jamaat.addText(maghribb)
+  maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-  jamaat.addSpacer(21) 
+  jamaat.addSpacer(15) 
   
   
-  var ishajamaat = jamaat.addText(ishab12hr) 
-  ishajamaat.font = Font.boldMonospacedSystemFont(17) ;
+  var ishajamaat = jamaat.addText(ishab) 
+  ishajamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
-  jamaat.addSpacer(14) 
+  jamaat.addSpacer(18) 
 }
  else{
 
-var fajarjamaat = jamaat.addText(fajar12hr) 
-fajarjamaat.font = Font.boldMonospacedSystemFont(17) ;
+var fajarjamaat = jamaat.addText(fajar) 
+fajarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 fajarjamaat.textColor = Color.white()
 fajarjamaat.textOpacity=0.9
-jamaat.addSpacer(23) 
+jamaat.addSpacer(12) 
 
-var zoharjamaat = jamaat.addText(zohar12hr) 
-zoharjamaat.font = Font.boldMonospacedSystemFont(17) ;
+var zoharjamaat = jamaat.addText(zohar) 
+zoharjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 zoharjamaat.textColor = Color.white()
 zoharjamaat.textOpacity=0.9
-jamaat.addSpacer(17) 
+jamaat.addSpacer(16) 
 
-var asarjamaat = jamaat.addText(asar12hr) 
-asarjamaat.font = Font.boldMonospacedSystemFont(17) ;
+var asarjamaat = jamaat.addText(asar) 
+asarjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 asarjamaat.textColor = Color.white()
 asarjamaat.textOpacity=0.9
-jamaat.addSpacer(21) 
+jamaat.addSpacer(17) 
 
 
-var maghribjamaat = jamaat.addText(maghrib12hr) 
-maghribjamaat.font = Font.boldMonospacedSystemFont(17) ;
+var maghribjamaat = jamaat.addText(maghrib) 
+maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-jamaat.addSpacer(21) 
+jamaat.addSpacer(15) 
 
 
-var ishajamaat = jamaat.addText(isha12hr) 
-ishajamaat.font = Font.boldMonospacedSystemFont(17) ;
+var ishajamaat = jamaat.addText(isha) 
+ishajamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 ishajamaat.textColor = Color.white()
 ishajamaat.textOpacity=0.9
-jamaat.addSpacer(2) 
+jamaat.addSpacer(18) 
 }
 
 main.layoutVertically()
@@ -440,14 +379,15 @@ middle.layoutVertically()
 left.layoutVertically()
 right.layoutVertically()
   
-widget.setPadding(50, 25, 0, 0)
+widget.setPadding(50, 25, 0, 8) //changed
  
 
 if(!config.runsInWidget){
 widget.presentMedium()
 
 }
- 
+
+
 Script.setWidget(widget)
 Script.complete()
 }
@@ -455,4 +395,5 @@ Script.complete()
   //required by autoupdate module
 module.exports = {
   main
-}
+} 
+ 
