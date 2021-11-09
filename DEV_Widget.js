@@ -2,7 +2,7 @@
 /*
 ##########################################################
   
-  Salah Widget v1.1 - 081121
+  Salah Widget v1.1 - 091121
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Date: 14/10/21
@@ -11,14 +11,17 @@
   Please do NOT remove or modify this header
      
   To check for updates or to leave feedback, tap on widget
-  ##########################################################
+
+
+   change log:
+ * formatted to show 24 hour times
+
+
+##########################################################
 */
-
-
-//copy from async to end of this file to github DEV_Widget.js to test then copy to Widget.js if all ok.
  
 
-async function main() { //uncomment when publish
+async function main() { 
 
  //create local file to set preference 
  let fm =FileManager.local()
@@ -73,7 +76,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="16:30"
+//timenow="15:30"
 
 console.log('time: '+ timenow )
  
@@ -95,42 +98,42 @@ if (timenow<fajarb&&Show_Beginning_Times!="yes"){
 
 if (timenow>sunrise&&timenow<zohar&&Show_Beginning_Times!='yes'){
   nextprayername=zohar
-  nextprayerlabel="ZOHAR    "//8 CHAR SPACES
+  nextprayerlabel="ZOHAR  "//8 CHAR SPACES
   }
   
   else if (timenow>sunrise&&timenow<zoharb){
   nextprayername=zoharb
-  nextprayerlabel="ZOHAR    "
+  nextprayerlabel="ZOHAR  "
   
   }
   
 if (timenow>zohar&&timenow<asar&&Show_Beginning_Times!='yes'){
- nextprayerlabel="ASAR       "//8 SPACE CHARS MAX
+ nextprayerlabel="ASAR      "//8 SPACE CHARS MAX
 nextprayername=asar
 }  
   
   
   else if(timenow>zoharb&&timenow<asarb){
   nextprayername=asarb
-  nextprayerlabel="ASAR       "
+  nextprayerlabel="ASAR     "
   }
 
   
  if (timenow>asarb&&timenow<maghribb){
- nextprayerlabel="MAGRIB  "//8 SPACE CHARS MAX
+ nextprayerlabel="MAGRIB"//8 SPACE CHARS MAX
  nextprayername=maghribb
  
  }
  
   
  if (timenow>maghribb&&timenow<isha&&  Show_Beginning_Times!='yes'){
- nextprayerlabel="ISHA         "//8 SPACE CHARS MAX
+ nextprayerlabel="ISHA        "//8 SPACE CHARS MAX
  nextprayername=isha
 }
 
 else if (timenow>maghribb&&timenow<ishab){
   nextprayername=ishab
-  nextprayerlabel="ISHA         "
+  nextprayerlabel="ISHA        "
   }
 
 
@@ -327,7 +330,7 @@ asarjamaat.textOpacity=0.9
   maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-  jamaat.addSpacer(18) 
+  jamaat.addSpacer(15) 
   
   
   var ishajamaat = jamaat.addText(ishab) 
@@ -361,7 +364,7 @@ var maghribjamaat = jamaat.addText(maghrib)
 maghribjamaat.font = Font.boldMonospacedSystemFont(14.5) ;
 maghribjamaat.textColor = Color.white()
 maghribjamaat.textOpacity=0.9
-jamaat.addSpacer(18) 
+jamaat.addSpacer(15) 
 
 
 var ishajamaat = jamaat.addText(isha) 
