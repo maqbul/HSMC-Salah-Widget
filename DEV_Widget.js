@@ -127,7 +127,7 @@ nextprayername=asar
  nextprayername=isha
 }
 
-else if (timenow>maghribb&&timenow<ishab){
+else if (timenow>maghribb&&timenow<isha){
   nextprayername=ishab
   nextprayerlabel="ISHA        "
   }
