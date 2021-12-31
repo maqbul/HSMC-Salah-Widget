@@ -2,14 +2,16 @@
 /*
 ##########################################################
   
-  Salah Widget v1.1 - 141121
+  Salah Widget v1.1 - 311221
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
-  Date: 14/10/21
+  Launched Date: 14/10/21
   Compatible with iOS (scriptable app)
      
   Please do NOT remove or modify this header
      
+  To check for updates or to leave feedback, tap on widget
+
 
    change log:
  * added gradient for Asar 
@@ -20,9 +22,12 @@
 ##########################################################
 */
 
+//Notes: copy all code to github - DEV_Widget.js, remove commented lines at top (async) and bottom to test then if all ok, replace Widget.js on github
 
-async function main() { //uncomment when publish
 
+//async function main() { //uncomment when publish
+
+  
  //create local file to set preference 
  let fm =FileManager.local()
  let dir = fm.documentsDirectory()
@@ -132,14 +137,20 @@ else if (timenow>maghribb&&timenow<isha){
   nextprayerlabel="ISHA        "
   }
 
+ 
+//set tomorrows sunrise after isha on new years day say message (ths is a bug fix showing error as reached 365 day number and can not +1 for next dayi.e 366 non existence)
 
-//set tomorrows sunrise after isha
+if (timenow>isha&&daynumber<365){
 var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 
-if (timenow>isha){
   nextprayername=sunriseTomorrow
   nextprayerlabel="SUNRISE"//8 CHAR SPACES
   }
+  else{
+   nextprayername="New Year" 
+  }
+  
+  
 
 let nextprayer=widget.addText(
 nextprayerlabel + '                         '+ nextprayername)
@@ -399,7 +410,7 @@ widget.presentMedium()
 
 }
 
-  
+/*  
 Script.setWidget(widget)
 Script.complete()
 }
@@ -408,4 +419,4 @@ Script.complete()
 module.exports = {
   main
 } 
- 
+ */
