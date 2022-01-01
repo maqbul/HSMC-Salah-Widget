@@ -146,7 +146,7 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
   nextprayername=sunriseTomorrow
   nextprayerlabel="SUNRISE"//8 CHAR SPACES
   }
-  else{
+else if (timenow>isha&&daynumber==365){
    nextprayername="New Year" 
   }
   
@@ -155,7 +155,9 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 let nextprayer=widget.addText(
 nextprayerlabel + '                         '+ nextprayername)
 nextprayer.textColor =Color.white()
-nextprayer.font = Font.boldMonospacedSystemFont(23)
+nextprayer.font = Font.boldMonospacedSystemFont(21.5)
+  
+ 
   
   
 //GRADIENT COLOR CHANGE  
