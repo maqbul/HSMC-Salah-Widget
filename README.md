@@ -1,5 +1,5 @@
 # Salah-Widget iOS (scriptable)
-Salah times based on HSMC Masjide Raza calendar
+iOS Salah times based on HSMC Masjide Raza calendar
 
 V1.0 - features added:
 
