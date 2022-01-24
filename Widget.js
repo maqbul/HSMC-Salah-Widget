@@ -1,8 +1,5 @@
-
-/*
-##########################################################
-  
-  Salah Widget v1.1 - 311221
+  /*
+  Salah Widget v1.1 - 240122
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Launched Date: 14/10/21
@@ -14,6 +11,8 @@
 
 
    change log:
+ * -1 added to day number var as going ahead 1 day
+ * new year bug fix (no data displayed) 
  * added gradient for Asar 
  * formatted to show 24 hour times
  * reduced 30 lines of code using fuctions for formatting
@@ -49,7 +48,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay);
+var daynumber = Math.floor(diff / oneDay -1);
 
 console.log('Day number: ' + daynumber);
 
@@ -81,7 +80,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="15:55"
+// timenow="19:55"
 
 console.log('time: '+ timenow )
  
@@ -146,7 +145,7 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
   nextprayername=sunriseTomorrow
   nextprayerlabel="SUNRISE"//8 CHAR SPACES
   }
-else if (timenow>isha&&daynumber==365){
+  else if (timenow>isha&&daynumber==365){
    nextprayername="New Year" 
   }
   
@@ -155,9 +154,7 @@ else if (timenow>isha&&daynumber==365){
 let nextprayer=widget.addText(
 nextprayerlabel + '                         '+ nextprayername)
 nextprayer.textColor =Color.white()
-nextprayer.font = Font.boldMonospacedSystemFont(21.5)
-  
- 
+nextprayer.font = Font.boldMonospacedSystemFont(22)
   
   
 //GRADIENT COLOR CHANGE  
@@ -302,22 +299,22 @@ label.addSpacer(5)
 
 let fajrlabel = label.addText("fajar");
 formatSalahLabel(fajrlabel)
-label.addSpacer(27) // < changes next salah spacing 
+label.addSpacer(29) // < changes next salah spacing 
 
 
 let zuhrlabel = label.addText("zuhr");
 formatSalahLabel(zuhrlabel)
-label.addSpacer(28) 
+label.addSpacer(29) 
 
 
 let asarlabel = label.addText("asar");
 formatSalahLabel(asarlabel)
-label.addSpacer(27) 
+label.addSpacer(25) 
 
 
 let maghriblabel = label.addText("magr");
 formatSalahLabel(maghriblabel)
-label.addSpacer(25)
+label.addSpacer(28)
 
 let ishalabel = label.addText("isha");
 formatSalahLabel(ishalabel)
@@ -339,7 +336,7 @@ if (Show_Beginning_Times=="yes"){
 
 var fajarjamaat = jamaat.addText(fajarb) 
 formatSalah(fajarjamaat)
-jamaat.addSpacer(12) // < changes next salah
+jamaat.addSpacer(19) // < changes next salah
   
 var zoharjamaat = jamaat.addText(zoharb) 
 formatSalah(zoharjamaat)
@@ -347,16 +344,16 @@ jamaat.addSpacer(16)
   
 var asarjamaat = jamaat.addText(asarb) 
 formatSalah(asarjamaat)
-jamaat.addSpacer(17) 
+jamaat.addSpacer(22) 
   
 var maghribjamaat = jamaat.addText(maghribb)
 formatSalah(maghribjamaat)
-jamaat.addSpacer(15) 
+jamaat.addSpacer(19) 
   
   
 var ishajamaat = jamaat.addText(ishab) 
 formatSalah(ishajamaat)
-jamaat.addSpacer(18) 
+jamaat.addSpacer(5) 
 }
 
 //SHOW JAMAAT TIMES - if preference set  
@@ -366,7 +363,7 @@ if (Show_Beginning_Times=="no"){
 
 var fajarjamaat = jamaat.addText(fajar) 
 formatSalah(fajarjamaat)
-jamaat.addSpacer(12) // < changes next salah spacing
+jamaat.addSpacer(19) // < changes next salah spacing
 
 
 var zoharjamaat = jamaat.addText(zohar) 
@@ -375,24 +372,24 @@ jamaat.addSpacer(16)
 
 var asarjamaat = jamaat.addText(asar) 
 formatSalah(asarjamaat)
-jamaat.addSpacer(17) 
+jamaat.addSpacer(22) 
 
 
 var maghribjamaat = jamaat.addText(maghribb) 
 formatSalah(maghribjamaat) 
-jamaat.addSpacer(16) 
+jamaat.addSpacer(19) 
 
 
 var ishajamaat = jamaat.addText(isha) 
 formatSalah(ishajamaat)
-jamaat.addSpacer(18) 
+jamaat.addSpacer(5) 
 }
 
 
 // truncated duplicate code below using function
 
 function formatSalah(salah){
-salah.font=Font.boldMonospacedSystemFont(14.5) ;
+salah.font=Font.boldMonospacedSystemFont(13.5) ;
 salah.textColor = Color.white()
 salah.textOpacity=0.9
 }
@@ -411,6 +408,11 @@ if(!config.runsInWidget){
 widget.presentMedium()
 
 }
+
+
+
+
+
 
 
 Script.setWidget(widget)
