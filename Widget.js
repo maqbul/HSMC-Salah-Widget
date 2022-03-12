@@ -11,7 +11,7 @@
 
 
    change log:
- * noticed in march 2022 its 1 day behind so removed from var daynumber (could be because not using actual date will need to investigate)  
+ * noticed in march 2022 its 1 day behind so removed from var daynumber = Math.floor(diff / oneDay -1 or + 1); (could be because not using actual date will need to investigate)  
  * -1 added to day number var as going ahead 1 day
  * new year bug fix (no data displayed) 
  * added gradient for Asar 
