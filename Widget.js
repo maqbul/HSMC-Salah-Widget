@@ -1,5 +1,5 @@
   /*
-  Salah Widget v1.1 - 240122
+  Salah Widget v1.1 - 120322
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Launched Date: 14/10/21
@@ -11,6 +11,7 @@
 
 
    change log:
+ * noticed in march 2022 its 1 day behind so removed from var daynumber (could be because not using actual date will need to investigate)  
  * -1 added to day number var as going ahead 1 day
  * new year bug fix (no data displayed) 
  * added gradient for Asar 
@@ -48,7 +49,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay -1);
+var daynumber = Math.floor(diff / oneDay);
 
 console.log('Day number: ' + daynumber);
 
