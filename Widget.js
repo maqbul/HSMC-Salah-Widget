@@ -220,7 +220,7 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 20){
+if (todaysDate == 21){
 feedback.textOpacity=0.2 //Opacity when displaying msg
 }
 
