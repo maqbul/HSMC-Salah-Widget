@@ -221,7 +221,7 @@ var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
 if (todaysDate == 21){
-feedback.textOpacity=0.5//Opacity when displaying msg
+feedback.textOpacity=1.0//Opacity when displaying msg
 }
 
 
