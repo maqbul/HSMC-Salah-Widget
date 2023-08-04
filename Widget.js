@@ -1,7 +1,11 @@
- iOS (scriptable app)
+/*
+  Salah Widget v1.2 - 240122
+  Developed by: Maqbul Yusuf
+  Email: maqbul.yusuf@sky.com
+  Launched Date: 14/10/21
+  Compatible with iOS (scriptable app)
      
   Please do NOT remove or modify this header
-     
   To check for updates or to leave feedback, tap on widget
 
 
