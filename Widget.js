@@ -1,9 +1,4 @@
-  /*
-  Salah Widget v1.1 - 120322
-  Developed by: Maqbul Yusuf 
-  Email: maqbul.yusuf@sky.com
-  Launched Date: 14/10/21
-  Compatible with iOS (scriptable app)
+ iOS (scriptable app)
      
   Please do NOT remove or modify this header
      
@@ -11,7 +6,6 @@
 
 
    change log:
- *  1 day behind so removed from var daynumber = Math.floor(diff / oneDay -1 or + 1); 
  * -1 added to day number var as going ahead 1 day
  * new year bug fix (no data displayed) 
  * added gradient for Asar 
@@ -81,7 +75,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-// timenow="19:55"
+// timenow="06:55"
 
 console.log('time: '+ timenow )
  
@@ -105,7 +99,7 @@ if (timenow>sunrise&&timenow<zohar&&Show_Beginning_Times=='no'){
   
   else if (timenow>sunrise&&timenow<zoharb){
   nextprayername=zoharb
-  nextprayerlabel="ZOHAR  "
+  nextprayerlabel="ZOHAR   "
   
   }
   
@@ -116,12 +110,12 @@ nextprayername=asar
   
   else if(timenow>zoharb&&timenow<asarb){
   nextprayername=asarb
-  nextprayerlabel="ASAR     "
+  nextprayerlabel="ASAR        "
   }
 
   
  if (timenow>asarb&&timenow<maghribb){
- nextprayerlabel="MAGRIB"//8 SPACE CHARS MAX
+ nextprayerlabel="MAGRIB "//8 SPACE CHARS MAX
  nextprayername=maghribb
  
  }
@@ -200,8 +194,8 @@ else if(timenow>=asar&&timenow<maghribb){
 // ISHA COLOR
 else if(timenow>=maghribb){
     gradient.colors = [
-    new Color("000000"),
-    new Color("000000")
+    new Color("353535"),
+    new Color("030303")
   ]
 }
 
@@ -212,7 +206,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('               HAVE A SUGGESTION? - TAP WIDGET')
+var feedback = widget.addText('               LOCK SCREEN WIDGET - COMING SOON!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -220,15 +214,15 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 21){
-feedback.textOpacity=1.0//Opacity when displaying msg
+if (todaysDate == 5){
+feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
 
 
 widget.backgroundGradient = gradient
 widget.addSpacer(9)
-widget.url="https://www.mis-productions.co.uk/salah-widget-ios/#comment" 
+widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
 
 
 let main = widget.addStack()
@@ -418,7 +412,7 @@ widget.presentMedium()
 
 Script.setWidget(widget)
 Script.complete()
-}
+}// uncomment left brace when publishing to github
 
   //required by autoupdate module
 module.exports = {
