@@ -1,9 +1,4 @@
-  /*
-  Salah Widget v1.1 - 240122
-  Developed by: Maqbul Yusuf
-  Email: maqbul.yusuf@sky.com
-  Launched Date: 14/10/21
-  Compatible with iOS (scriptable app)
+ iOS (scriptable app)
      
   Please do NOT remove or modify this header
      
@@ -80,7 +75,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-// timenow="19:55"
+// timenow="06:55"
 
 console.log('time: '+ timenow )
  
@@ -104,7 +99,7 @@ if (timenow>sunrise&&timenow<zohar&&Show_Beginning_Times=='no'){
   
   else if (timenow>sunrise&&timenow<zoharb){
   nextprayername=zoharb
-  nextprayerlabel="ZOHAR  "
+  nextprayerlabel="ZOHAR   "
   
   }
   
@@ -115,12 +110,12 @@ nextprayername=asar
   
   else if(timenow>zoharb&&timenow<asarb){
   nextprayername=asarb
-  nextprayerlabel="ASAR     "
+  nextprayerlabel="ASAR        "
   }
 
   
  if (timenow>asarb&&timenow<maghribb){
- nextprayerlabel="MAGRIB"//8 SPACE CHARS MAX
+ nextprayerlabel="MAGRIB "//8 SPACE CHARS MAX
  nextprayername=maghribb
  
  }
@@ -211,7 +206,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('               USEFUL? LEAVE FEEDBACK - TAP WIDGET')
+var feedback = widget.addText('               LOCK SCREEN WIDGET - COMING SOON!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -219,8 +214,8 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 30){
-feedback.textOpacity=0.2 //Opacity when displaying msg
+if (todaysDate == 5){
+feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
 
@@ -417,7 +412,7 @@ widget.presentMedium()
 
 Script.setWidget(widget)
 Script.complete()
-}
+}// uncomment left brace when publishing to github
 
   //required by autoupdate module
 module.exports = {
