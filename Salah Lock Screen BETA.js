@@ -29,7 +29,7 @@
 //Notes: copy all code to github - salah-lockscreen -widget.js, remove commented lines at top (async) and bottom to test then if all ok, replace salah-lockscreen -widget.js on github
 
 
-//async function main() { //uncomment when publish
+async function main() { //uncomment when publish
 
  
   
@@ -167,13 +167,13 @@ widget.url="scriptable:///run/Salah%20Widget"
 
     
 
-//Script.setWidget(widget)
-//Script.complete()
-//} uncomment when publishing to github
+Script.setWidget(widget)
+Script.complete()
+}// uncomment when publishing to github
 
   //required by autoupdate module
 module.exports = {
-  //main
+  main
 } 
  
 
