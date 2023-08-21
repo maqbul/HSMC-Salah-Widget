@@ -1,6 +1,6 @@
   /*
 ##########################################################
-  Salah Time Lock screen Widget HSMC BETA
+  Salah Time Lock screen Widget HSMC BETA via scriptdude
   v1.1 - Sept 2023
 
   FEATURES
