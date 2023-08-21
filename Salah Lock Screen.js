@@ -176,8 +176,11 @@ widget.presentMedium()
 
 
 
+widget.addAccessoryWidgetBackground = true
+widget.presentAccessoryCircular()
 
-Script.setWidget(widget)
+
+  Script.setWidget(widget)
 Script.complete()
 }// uncomment left brace when publishing to github
 
@@ -186,10 +189,6 @@ module.exports = {
   main
 } 
 
-
-
-widget.addAccessoryWidgetBackground = true
-widget.presentAccessoryCircular()
 //Script.complete();
 
 
