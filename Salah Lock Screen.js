@@ -165,24 +165,32 @@ nextprayer.centerAlignText() //added for lockscreen
 widget.url="scriptable:///run/Salah%20Widget" 
 
 
-    
+
+if(!config.runsInWidget){
+widget.presentMedium()
+
+}
+
+
+
+
+
+
 
 Script.setWidget(widget)
 Script.complete()
-}// uncomment when publishing to github
+}// uncomment left brace when publishing to github
 
   //required by autoupdate module
 module.exports = {
   main
 } 
- 
+
+
 
 widget.addAccessoryWidgetBackground = true
-//Script.setWidget(widget);
 widget.presentAccessoryCircular()
 //Script.complete();
 
-Script.setWidget(widget);
-//widget.presentSmall();
-Script.complete();
+
 
