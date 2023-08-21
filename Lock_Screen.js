@@ -1,6 +1,3 @@
-// Variables used by Scriptable.
-// These must be at the very top of the file. Do not edit.
-// icon-color: teal; icon-glyph: magic;
   /*
 ##########################################################
   Salah Time Lock screen Widget HSMC BETA
@@ -29,7 +26,7 @@
 //Notes: copy all code to github - salah-lockscreen -widget.js, remove commented lines at top (async) and bottom to test then if all ok, replace salah-lockscreen -widget.js on github
 
 
-async function main() { //uncomment when publish
+//async function main() { //uncomment when publish
 
  
   
@@ -160,18 +157,28 @@ nextprayerlabel + '                         '+ nextprayername)
 nextprayer.textColor =Color.white()
 nextprayer.font = Font.boldMonospacedSystemFont(18)
 nextprayer.centerAlignText() //added for lockscreen
-
-  let widget = new ListWidget()
+  
   
 widget.url="scriptable:///run/Salah%20Widget" 
+
+
     
-Script.setWidget(widget)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Script.setWidget(widget)
 Script.complete()
-} //< uncomment when publishing to github
+//} //< uncomment when publishing to github
 
   //required by autoupdate module
 module.exports = {
-  main //< uncomment when publishing to github
+  //main //< uncomment when publishing to github
 } 
 
  
@@ -179,10 +186,9 @@ module.exports = {
 widget.addAccessoryWidgetBackground = true
 //Script.setWidget(widget);
 widget.presentAccessoryCircular()
+//Script.complete();
 
-
-
-Script.complete();
-
-
+//Script.setWidget(widget);
+//widget.presentSmall();
+//Script.complete();
 
