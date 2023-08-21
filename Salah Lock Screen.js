@@ -182,7 +182,7 @@ widget.presentAccessoryCircular()
 
 
 
-//Script.complete();
+Script.complete();
 
 
 
