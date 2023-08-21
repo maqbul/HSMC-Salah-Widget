@@ -160,7 +160,8 @@ nextprayerlabel + '                         '+ nextprayername)
 nextprayer.textColor =Color.white()
 nextprayer.font = Font.boldMonospacedSystemFont(18)
 nextprayer.centerAlignText() //added for lockscreen
-  
+
+  let widget = new ListWidget()
   
 widget.url="scriptable:///run/Salah%20Widget" 
     
