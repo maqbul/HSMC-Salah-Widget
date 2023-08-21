@@ -1,6 +1,6 @@
   /*
 ##########################################################
-  Salah Time Lock screen Widget HSMC BETA via scriptdude
+  Salah Time Lock screen Widget HSMC BETA
   v1.1 - Sept 2023
 
   FEATURES
@@ -155,7 +155,7 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 let nextprayer=widget.addText(
 nextprayerlabel + '                         '+ nextprayername)
 nextprayer.textColor =Color.white()
-nextprayer.font = Font.boldMonospacedSystemFont(18)
+nextprayer.font = Font.boldMonospacedSystemFont(14)
 nextprayer.centerAlignText() //added for lockscreen
   
   
