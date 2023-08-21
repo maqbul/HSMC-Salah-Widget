@@ -178,7 +178,7 @@ Script.complete()
 
   //required by autoupdate module
 module.exports = {
-  //main //< uncomment when publishing to github
+  main //< uncomment when publishing to github
 } 
 
  
