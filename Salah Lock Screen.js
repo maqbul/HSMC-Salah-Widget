@@ -166,10 +166,7 @@ widget.url="scriptable:///run/Salah%20Widget"
 
 
 
-if(!config.runsInWidget){
-widget.presentMedium()
 
-}
 
 
 
