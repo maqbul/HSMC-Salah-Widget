@@ -167,7 +167,15 @@ widget.url="scriptable:///run/Salah%20Widget"
     
     
     
-    
+
+  widget.addAccessoryWidgetBackground = true
+//Script.setWidget(widget);
+widget.presentAccessoryCircular()
+//Script.complete();
+
+//Script.setWidget(widget);
+//widget.presentSmall();
+//Script.complete();
     
     
     
@@ -183,12 +191,5 @@ module.exports = {
 
  
 
-widget.addAccessoryWidgetBackground = true
-//Script.setWidget(widget);
-widget.presentAccessoryCircular()
-//Script.complete();
 
-//Script.setWidget(widget);
-//widget.presentSmall();
-//Script.complete();
 
