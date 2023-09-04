@@ -1,9 +1,11 @@
   /*
 ##########################################################
   Salah Time Lock screen Widget HSMC BETA
-  v1.1 - Sept 2023
+  v1.2 - Sept 2023
 
   FEATURES
+  * added outline circle and full salah name
+..
 
   * Shows next beginning followed by jamaat time 
   * Tap icon to view full widget (must be setup)
@@ -30,7 +32,21 @@ async function main() { //uncomment when publish
 
  
   
-let widget = new ListWidget()
+//let widget = new ListWidget()
+
+
+
+//const widget = new ListWidget()
+
+
+
+const widget = new ListWidget()
+
+
+
+
+
+
 
 let url = "https://mis-productions.co.uk/prayertimes/hsmc/data.json";
 let r = new Request(url)
@@ -74,7 +90,7 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="04:55"
+//timenow="20:55"
 
 console.log('time: '+ timenow )
  
@@ -82,43 +98,44 @@ console.log('time: '+ timenow )
 
  if (timenow<fajarb){
   nextprayername=fajarb
-  nextprayerlabel="F   "//9 CHAR SPACES
+  nextprayerlabel="  FJR"//9 CHAR SPACES
   }
-  else if (timenow>fajarb&&timenow<sunrise){
+  else if (timenow>fajarb&&timenow<=sunrise){
   nextprayername=sunrise
-  nextprayerlabel="S"
+  nextprayerlabel="  SUN"
   }
   
    
 
-if (timenow>sunrise&&timenow<zoharb){
+if (timenow>sunrise&&timenow<=zoharb){
   nextprayername=zoharb
-  nextprayerlabel="Z"
-  
+ nextprayerlabel="  ZHR"
+//centerAlignText(nextprayerlabel)
+//progressStack.addText("mis") 
   }
   
   
-  if (timenow>zoharb&&timenow<zohar){
+  if (timenow>zoharb&&timenow<=zohar){
   nextprayername=zohar
-  nextprayerlabel="Z J"
+  nextprayerlabel="  ZHR"
   
   }
   
   
   
-if (timenow>zohar&&timenow<asarb){
- nextprayerlabel="A      "
+if (timenow>zohar&&timenow<=asarb){
+ nextprayerlabel="  ASR"
 nextprayername=asarb
 }  
   
- if(timenow>asarb&&timenow<asar){
+ if(timenow>asarb&&timenow<=asar){
   nextprayername=asar
-  nextprayerlabel="A   J  "
+  nextprayerlabel=" ASR"
   }
 
   
  if (timenow>asarb&&timenow<=maghribb){
- nextprayerlabel="M "//8 SPACE CHARS MAX
+ nextprayerlabel="  MAG "//8 SPACE CHARS MAX
  nextprayername=maghribb
  
  }
@@ -128,13 +145,13 @@ nextprayername=asarb
 
  if (timenow>maghribb&&timenow<=ishab){
   nextprayername=ishab
-  nextprayerlabel="I      "
+  nextprayerlabel="  ESH"
   }
   
   
-  if (timenow>ishab&&timenow<isha){
+  if (timenow>ishab&&timenow<=isha){
   nextprayername=isha
-  nextprayerlabel="I  J    "
+  nextprayerlabel="  ESH"
   }
 
  
@@ -152,23 +169,127 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
   
   
 
-let nextprayer=widget.addText(
-nextprayerlabel + '                         '+ nextprayername)
-nextprayer.textColor =Color.white()
-nextprayer.font = Font.boldMonospacedSystemFont(14)
-nextprayer.centerAlignText() //added for lockscreen
+
+  
+//widget.url="scriptable:///run/Salah%20Widget" 
+
+
+
+
+
+let progressStack = await progressCircle(widget,100)
+
+
+
+let sf = SFSymbol.named("cloud.fill")
+//progressStack=Font.regularSystemFont(1)
+progressStack.addText(nextprayerlabel+"  "+nextprayername).font = Font.boldMonospacedSystemFont(13)
+
+
+
+//progressStack.addText(nextprayername).font = Font.boldMonospacedSystemFont(13)
+
+//sf.imageSize = new Size(20,26)
+sf.tintColor = new Color("#fafafa")
+// 
+// widget.presentAccessoryCircular() // Does not present correctly
+
+
+async function progressCircle(
+  on,
+  value = 100,
+  colour = "hsl(0, 0%, 100%)",
+  background = "hsl(0, 0%, 10%)",
+  size = 61,
+  barWidth = 2.5,
+) {
+  if (value > 1) {
+    value /= 50
+  }
+  if (value < 0) {
+    value = 0
+  }
+  if (value > 1) {
+    value = 1
+  }
+
+  async function isUsingDarkAppearance() {
+    return !Color.dynamic(Color.white(), Color.black()).red
+  }
+  let isDark = await isUsingDarkAppearance()
+
+  if (colour.split("-").length > 1) {
+    if (isDark) {
+      colour = colour.split("-")[1]
+    } else {
+      colour = colour.split("-")[0]
+    }
+  }
+
+  if (background.split("-").length > 1) {
+    if (isDark) {
+      background = background.split("-")[1]
+    } else {
+      background = background.split("-")[0]
+    }
+  }
+
+  let w = new WebView()
+  await w.loadHTML('<canvas id="c"></canvas>')
+
+  let base64 = await w.evaluateJavaScript(
+    `
+  let colour = "${colour}",
+    background = "${background}",
+    size = ${size}*3,
+    lineWidth = ${barWidth}*3,
+    percent = ${value * 100}
+      
+  let canvas = document.getElementById('c'),
+    c = canvas.getContext('2d')
+  canvas.width = size
+  canvas.height = size
+  let posX = canvas.width / 2,
+    posY = canvas.height / 2,
+    onePercent = 360 / 100,
+    result = onePercent * percent
+  c.lineCap = 'round'
+  c.beginPath()
+  c.arc( posX, posY, (size-lineWidth-1)/2, (Math.PI/180) * 270, (Math.PI/180) * (270 + 360) )
+  c.strokeStyle = background
+  c.lineWidth = lineWidth 
+  c.stroke()
+  c.beginPath()
+  c.strokeStyle = colour
+  c.lineWidth = lineWidth
+  c.arc( posX, posY, (size-lineWidth-1)/2, (Math.PI/180) * 270, (Math.PI/180) * (270 + result) )
+  c.stroke()
+  completion(canvas.toDataURL().replace("data:image/png;base64,",""))`,
+    true
+  )
   
   
-widget.url="scriptable:///run/Salah%20Widget" 
+  const image = Image.fromData(Data.fromBase64String(base64))
+  
+  let stack = on.addStack()
+  stack.size = new Size(size, size)
+  stack.backgroundImage = image
+  stack.centerAlignContent()
+  let padding = barWidth * 2
+  stack.setPadding(padding, padding, padding, padding)
+  
+  
+  return stack
+
+} //end , Closure for Canvas. Circle code
+   
+    
+
+ 
 
 
-    
-    
-    
-    
-    
 
-  widget.addAccessoryWidgetBackground = true
+widget.addAccessoryWidgetBackground = true
 //Script.setWidget(widget);
 widget.presentAccessoryCircular()
 //Script.complete();
@@ -176,8 +297,9 @@ widget.presentAccessoryCircular()
 //Script.setWidget(widget);
 //widget.presentSmall();
 //Script.complete();
-    
-    
+
+
+
     
     
     Script.setWidget(widget)
@@ -188,8 +310,5 @@ Script.complete()
 module.exports = {
   main //< uncomment when publishing to github
 } 
-
- 
-
 
 
