@@ -179,7 +179,7 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 
 
   
-widget.url="www.mis-productions.co.uk" 
+widget.url="www.mis-productions.co.uk/salah-widget-ios/#widget_feedback" 
 
 
 
