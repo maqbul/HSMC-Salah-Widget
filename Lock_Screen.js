@@ -5,6 +5,7 @@
 
   FEATURES
   * added outline circle and full salah name
+  * shows fajar begin time after isha
 ..
 
   * Shows next beginning followed by jamaat time 
@@ -90,19 +91,26 @@ if (m<10){m="0"+m}
 
 timenow=h+':'+m
  
-//timenow="20:55"
+//timenow="05:50"
 
 console.log('time: '+ timenow )
  
 //NEXT PRAYER LABEL - 
 
- if (timenow<fajarb){
+ if (timenow<=fajarb){
   nextprayername=fajarb
   nextprayerlabel="  FJR"//9 CHAR SPACES
   }
+  
+  else if (timenow>fajarb&&timenow<=fajar){
+  nextprayername=fajar
+  nextprayerlabel="  FJR"
+  }
+  
+  
   else if (timenow>fajarb&&timenow<=sunrise){
   nextprayername=sunrise
-  nextprayerlabel="  SUN"
+  nextprayerlabel="  SRI"
   }
   
    
@@ -135,7 +143,7 @@ nextprayername=asarb
 
   
  if (timenow>asarb&&timenow<=maghribb){
- nextprayerlabel="  MAG "//8 SPACE CHARS MAX
+ nextprayerlabel="  MGR"//8 SPACE CHARS MAX
  nextprayername=maghribb
  
  }
@@ -160,8 +168,8 @@ nextprayername=asarb
 if (timenow>isha&&daynumber<365){
 var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
 
-  nextprayername=sunriseTomorrow
-  nextprayerlabel="S"//8 CHAR SPACES
+  nextprayername=fajarb
+  nextprayerlabel="  FJR"//8 CHAR SPACES
   }
   else if (timenow>isha&&daynumber==365){
    nextprayername="N Year" 
@@ -201,7 +209,7 @@ async function progressCircle(
   colour = "hsl(0, 0%, 100%)",
   background = "hsl(0, 0%, 10%)",
   size = 61,
-  barWidth = 2.5,
+  barWidth = 2.7,
 ) {
   if (value > 1) {
     value /= 50
