@@ -210,7 +210,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('               LOCK SCREEN WIDGET - COMING SOON!')
+var feedback = widget.addText('   NEW:            LOCK SCREEN WIDGET - TAP HERE!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -218,17 +218,18 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 5){
+if (todaysDate == 8){
 feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
 
-
 widget.backgroundGradient = gradient
 widget.addSpacer(9)
-widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
 
+//widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
 
+//track taps to new widget
+widget.url="https://rebrand.ly/lock_screen_widget"
 let main = widget.addStack()
 let left = main.addStack()
 let right = main.addStack()
