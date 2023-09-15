@@ -142,7 +142,7 @@ nextprayername=asarb
   }
 
   
- if (timenow>asarb&&timenow<=maghribb){
+ if (timenow>asar&&timenow<=maghribb){
  nextprayerlabel="  MGR"//8 SPACE CHARS MAX
  nextprayername=maghribb
  
