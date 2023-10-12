@@ -207,10 +207,11 @@ else if(timenow>=maghribb){
   
 
 // Feedback message
+// Feedback message
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('   NEW:            LOCK SCREEN WIDGET - TAP HERE!')
+var feedback = widget.addText('  LOCK WIDGET USEFUL?  SEND FEEDBACK - TAP HERE!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -218,18 +219,21 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 15 || todaysDate== 22 || todaysDate== 29 || todaysDate==6){
+if (todaysDate == 15 || todaysDate== 11 || todaysDate== 29 || todaysDate==6){
 feedback.textOpacity=0.9 //Opacity when displaying msg
 }
+
+
 
 
 widget.backgroundGradient = gradient
 widget.addSpacer(9)
 
-//widget.url="http://www.mis-productions.co.uk/salah-widget-ios" 
+//widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://rebrand.ly/lock_screen_widget"
+widget.url="https://www.mis-productions.co.uk/salah-widget-ios/#comment"
+  
 let main = widget.addStack()
 let left = main.addStack()
 let right = main.addStack()
