@@ -211,7 +211,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText(' DAILY DEEDS APP - LEARN ESSENTIAL KNOWLEDGE - TAP HERE!')
+var feedback = widget.addText(' DAILY DEEDS APP - LEARN KNOWLEDGE - TAP HERE!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -219,7 +219,7 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 15 || todaysDate== 11 || todaysDate== 29 || todaysDate==6){
+if (todaysDate == 15 || todaysDate== 21 || todaysDate== 29 || todaysDate==7){
 feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
