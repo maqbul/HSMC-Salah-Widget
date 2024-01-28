@@ -47,7 +47,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay);
+var daynumber = Math.floor(diff / oneDay) -1; //as going 1 day ahead in json file same with salahtime app (shared file)
 
 console.log('Day number: ' + daynumber);
 
@@ -232,7 +232,7 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://www.mis-productions.co.uk/apps/dailydeeds"
+widget.url="https://rebrand.ly/iOS-salahwidget-Ad"//in rebrandly, ideally should take to apps homepage
   
 let main = widget.addStack()
 let left = main.addStack()
