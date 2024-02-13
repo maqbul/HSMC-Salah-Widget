@@ -1,5 +1,9 @@
 /*
-  Salah Widget v1.2 - 240122
+  Salah Widget 
+  
+  13/02/24 Enhanced offline view
+  
+  v1.2 - 240122
   Developed by: Maqbul Yusuf
   Email: maqbul.yusuf@sky.com
   Launched Date: 14/10/21
@@ -26,19 +30,31 @@
 async function main() { //uncomment when publish
 
   
+ /let localFm = FileManager.local()
+let cachePath = localFm.documentsDirectory()
+let data;
+let usingCachedData = false;
+let cache = localFm.joinPath(cachePath, "lastread")
+
+  
  //create local file to set preference 
  let fm =FileManager.local()
  let dir = fm.documentsDirectory()
  let path =fm.joinPath(dir, "show_beginning_preference.txt") 
  let getPreference=fm.readString(path)
  
- let  Show_Beginning_Times=getPreference //get preference from local set in main module
+ let  Show_Beginning_Times="yes" //get preference from local set in main module
   
  console.log('Display beginning: '+Show_Beginning_Times)
   
 let widget = new ListWidget()
 
-let url = "https://mis-productions.co.uk/prayertimes/hsmc/data.json";
+
+try {
+  log('online')
+ let url = ("https://mis-productions.co.uk/prayertimes/hsmc/data.json")
+  localFm.writeString(cache, url)
+
 let r = new Request(url)
 let getPrayer = await r.loadJSON()
 var str=JSON.stringify(getPrayer)
@@ -47,7 +63,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay) -1; //as going 1 day ahead in json file same with salahtime app (shared file)
+var daynumber = Math.floor(diff / oneDay)-1;
 
 console.log('Day number: ' + daynumber);
 
@@ -207,11 +223,10 @@ else if(timenow>=maghribb){
   
 
 // Feedback message
-// Feedback message
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText(' DAILY DEEDS APP - LEARN KNOWLEDGE - TAP HERE!')
+var feedback = widget.addText('   NEW:            LOCK SCREEN WIDGET - TAP HERE!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -219,7 +234,7 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 15 || todaysDate== 21 || todaysDate== 29 || todaysDate==7){
+if (todaysDate == 15 || todaysDate== 22 || todaysDate== 29 || todaysDate==6){
 feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
@@ -232,8 +247,9 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://rebrand.ly/iOS-salahwidget-Ad"//in rebrandly, ideally should take to apps homepage
-  
+widget.url="https://rebrand.ly/lock_screen_widget"
+
+
 let main = widget.addStack()
 let left = main.addStack()
 let right = main.addStack()
@@ -408,13 +424,35 @@ right.layoutVertically()
 widget.setPadding(50, 25, 0, 8)
  
 
-if(!config.runsInWidget){
-widget.presentMedium()
+
+} //end try block, do all above when online
+
+
+// and below if offline
+catch(e) {
+  console.log("Offline mode")
+    data = localFm.readString(cache);
+    usingCachedData = true
+
+ref="صَلَاة "
+reftext = widget.addText(ref);
+reftext.font =Font.regularSystemFont(20)
+reftext.centerAlignText();
 
 }
 
 
 
+
+
+if(!config.runsInWidget){
+widget.presentMedium()
+
+}
+
+/////
+
+// icon-color: light-brown; icon-glyph: magic;
 
 
 
