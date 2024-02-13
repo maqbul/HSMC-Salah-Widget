@@ -1,6 +1,11 @@
   /*
 ##########################################################
   Salah Time Lock screen Widget HSMC BETA
+
+  update 11/02/24 
+* time remaining circle bar 
+* better offline appearance
+
   v1.2 - Sept 2023
 
   FEATURES
@@ -33,23 +38,22 @@ async function main() { //uncomment when publish
 
  
   
-//let widget = new ListWidget()
-
-
-
-//const widget = new ListWidget()
-
-
-
 const widget = new ListWidget()
 
 
+var fajarb=""
+let localFm = FileManager.local()
+let cachePath = localFm.documentsDirectory()
+let data;
+let usingCachedData = false;
+let cache = localFm.joinPath(cachePath, "lastread")
+
+try {
+  log('online')
+ let url = ("https://mis-productions.co.uk/prayertimes/hsmc/data.json")
+  localFm.writeString(cache, url)
 
 
-
-
-
-let url = "https://mis-productions.co.uk/prayertimes/hsmc/data.json";
 let r = new Request(url)
 let getPrayer = await r.loadJSON()
 var str=JSON.stringify(getPrayer)
@@ -63,7 +67,7 @@ var daynumber = Math.floor(diff / oneDay)-1;
 console.log('Day number: ' + daynumber);
 
 //beginnings
-var fajarb=getPrayer[daynumber].beginning.fajarb
+ fajarb=getPrayer[daynumber].beginning.fajarb
 var sunrise=getPrayer[daynumber].beginning.sunrise
 var zoharb=getPrayer[daynumber].beginning.zoharb
 var asarb=getPrayer[daynumber].beginning.asarb
@@ -76,8 +80,9 @@ var zohar=getPrayer[daynumber].jamaat.zohar
 var asar=getPrayer[daynumber].jamaat.asar
 var maghrib=getPrayer[daynumber].jamaat.maghribb
 var isha=getPrayer[daynumber].jamaat.isha
- 
-   
+  
+  
+  
 var nextprayerlabel="   "
 var nextprayername=""
 
@@ -85,6 +90,8 @@ var nextprayername=""
 let time = new Date()
 h=time.getHours()
 m=time.getMinutes()
+
+//console.log(m)
 
 if (h<10){h="0"+h}
 if (m<10){m="0"+m}
@@ -105,6 +112,7 @@ console.log('time: '+ timenow )
   else if (timenow>fajarb&&timenow<=fajar){
   nextprayername=fajar
   nextprayerlabel="  FJR"
+  
   }
   
   
@@ -118,8 +126,7 @@ console.log('time: '+ timenow )
 if (timenow>sunrise&&timenow<=zoharb){
   nextprayername=zoharb
  nextprayerlabel="  ZHR"
-//centerAlignText(nextprayerlabel)
-//progressStack.addText("mis") 
+
   }
   
   
@@ -148,8 +155,6 @@ nextprayername=asarb
  
  }
  
-  
- 
 
  if (timenow>maghribb&&timenow<=ishab){
   nextprayername=ishab
@@ -175,32 +180,45 @@ var sunriseTomorrow=getPrayer[daynumber+1].beginning.sunrise
    nextprayername="N Year" 
   }
   
+widget.url="www.mis-productions.co.uk/salah-widget-ios/#widget_feedback"  
+
+// insert js code to calc mins remaining
+  minutes=""
+  function remaining(arr){
+
+let msChecker = 10000000000000000;
+for ( let i = 0; i < arr.length; i++) {   
+  if (i % 2 === 0) { 
+ //   console.log(arr[i])
+let end = new Date("February 11, 2024 " + arr[i]);
+let start = new Date("February 11, 2024  " + arr[i+1]);
+let ms = Math.floor(start - end);
+
+if ( ms < msChecker) { 
+  msChecker = ms
+}
+  }
+}
+ minutes = Math.floor(msChecker/1000/60) //Made this variable into global, so it works
+let hours =  Math.floor(msChecker/1000/60/60)
+
+console.log("mins:"+minutes)
   
+  console.log("nxt"+nextprayerlabel+" " +nextprayername)
+  }
+
+var getMins=remaining ([timenow,nextprayername])
 
 
-  
-widget.url="www.mis-productions.co.uk/salah-widget-ios/#widget_feedback" 
-
-
-
-
-
-let progressStack = await progressCircle(widget,100)
+let progressStack = await progressCircle(widget,minutes-5)
 
 
 
 let sf = SFSymbol.named("cloud.fill")
-//progressStack=Font.regularSystemFont(1)
 progressStack.addText(nextprayerlabel+"  "+nextprayername).font = Font.boldMonospacedSystemFont(13)
 
 
-
-//progressStack.addText(nextprayername).font = Font.boldMonospacedSystemFont(13)
-
-//sf.imageSize = new Size(20,26)
 sf.tintColor = new Color("#fafafa")
-// 
-// widget.presentAccessoryCircular() // Does not present correctly
 
 
 async function progressCircle(
@@ -209,7 +227,7 @@ async function progressCircle(
   colour = "hsl(0, 0%, 100%)",
   background = "hsl(0, 0%, 10%)",
   size = 61,
-  barWidth = 2.7,
+  barWidth = 4.3,
 ) {
   if (value > 1) {
     value /= 50
@@ -290,25 +308,37 @@ async function progressCircle(
   return stack
 
 } //end , Closure for Canvas. Circle code
+
+widget.addAccessoryWidgetBackground = true
+//Script.setWidget(widget);
+widget.presentAccessoryCircular()
+
    
-    
+    } //end try block, do all above when online
 
- 
 
+// and below if offline
+catch(e) {
+  console.log("Offline mode")
+    data = localFm.readString(cache);
+    usingCachedData = true
+
+ref="صَلَاة "
+reftext = widget.addText(ref);
+reftext.font =Font.regularSystemFont(20)
+reftext.centerAlignText();
 
 
 widget.addAccessoryWidgetBackground = true
 //Script.setWidget(widget);
 widget.presentAccessoryCircular()
-//Script.complete();
 
-//Script.setWidget(widget);
-//widget.presentSmall();
-//Script.complete();
+}
 
 
 
-    
+
+
     
     Script.setWidget(widget)
 Script.complete()
