@@ -30,7 +30,7 @@
 async function main() { //uncomment when publish
 
   
- /let localFm = FileManager.local()
+ let localFm = FileManager.local()
 let cachePath = localFm.documentsDirectory()
 let data;
 let usingCachedData = false;
