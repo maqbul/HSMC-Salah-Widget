@@ -247,7 +247,7 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://rebrand.ly/salahWidgetAd-lockscreen"
+widget.url="https://www.mis-productions.co.uk/salah-widget-ios/"
 
 
 let main = widget.addStack()
