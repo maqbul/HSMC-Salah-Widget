@@ -226,7 +226,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('   UPDATED:        LOCK SCREEN WIDGET - TAP HERE!')
+var feedback = widget.addText('  Like the widget?      Please rate it - TAP HERE!')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -247,7 +247,7 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://www.mis-productions.co.uk/salah-widget-ios/"
+widget.url="https://www.mis-productions.co.uk/salah-widget-ios/#comment"
 
 
 let main = widget.addStack()
