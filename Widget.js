@@ -226,7 +226,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('  LIKE THE WIDGET?     PLEASE RATE IT - TAP HERE!')
+var feedback = widget.addText(' ')
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
