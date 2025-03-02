@@ -52,7 +52,9 @@ let widget = new ListWidget()
 
 try {
   log('online')
- let url = ("https://mis-productions.co.uk/prayertimes/hsmc/data.json")
+ let url = ("https://mis-productions.co.uk/hsmc/salahtime/salahtimeshsmc_data.json")
+
+  //let url = ("https://mis-productions.co.uk/prayertimes/hsmc/data.json")
   localFm.writeString(cache, url)
 
 let r = new Request(url)
