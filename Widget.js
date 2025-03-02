@@ -65,7 +65,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay)-1;
+var daynumber = Math.floor(diff / oneDay); // -1 or +1 to adjust days
 
 console.log('Day number: ' + daynumber);
 
@@ -228,7 +228,7 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText(' ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
+var feedback = widget.addText('CHECK OUR NEW SALAH TIME APP - TAP HERE  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -247,7 +247,7 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://www.mis-productions.co.uk/salah-widget-ios/#comment"
+widget.url="https://www.masjideraza.com/salahtime"
 
 
 let main = widget.addStack()
