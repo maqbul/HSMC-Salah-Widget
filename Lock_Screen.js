@@ -50,7 +50,7 @@ let cache = localFm.joinPath(cachePath, "lastread")
 
 try {
   log('online')
- let url = ("https://mis-productions.co.uk/prayertimes/hsmc/data.json")
+ let url = ("https://www.mis-productions.co.uk//hsmc/salahtime/salahtimeshsmc_data.json")
   localFm.writeString(cache, url)
 
 
