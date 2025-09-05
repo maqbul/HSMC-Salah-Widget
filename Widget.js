@@ -228,7 +228,8 @@ else if(timenow>=maghribb){
 widget.addSpacer(4)
 
 widget.addStack()
-var feedback = widget.addText('CHECK OUR NEW SALAH TIME APP - TAP HERE  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
+var feedback = widget.addText('MILAD: ANY PROOF IN QURAN? - LISTEN IN APP  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
+//var feedback = widget.addText('CHECK OUR NEW SALAH TIME APP - TAP HERE  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
