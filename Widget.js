@@ -237,7 +237,8 @@ feedback.textOpacity=0
 var todaysDate=now.getDate()
 console.log ('Todays date ' + todaysDate)
 
-if (todaysDate == 15 || todaysDate== 20 || todaysDate== 29 || todaysDate==6){
+  // if (todaysDate == 15 || todaysDate== 20 || todaysDate== 29 || todaysDate==6){
+if (todaysDate == 5 || todaysDate== 6 || todaysDate== 7 || todaysDate==8){
 feedback.textOpacity=0.9 //Opacity when displaying msg
 }
 
