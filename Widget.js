@@ -229,7 +229,7 @@ widget.addSpacer(4)
 
 widget.addStack()
 //var feedback = widget.addText('MILAD: ANY PROOF IN QURAN? - TAP FOR PODCAST ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
- var feedback = widget.addText('MASJID RADIO VIA THE SALAH TIME APP - TAP HERE  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
+ var feedback = widget.addText('FULL YEAR SALAH TIME CALENDAR - TAP HERE  ') //ADD MESSAGE HERE AND LINK BELOW IF NEEDED
 feedback.font = Font.headline()
 feedback.font = Font.lightSystemFont(10); 
 feedback.textOpacity=0 
@@ -250,7 +250,7 @@ widget.addSpacer(9)
 //widget.url="http://www.mis-productions.co.uk/salah-widget-ios" use Feedback link also add message for lock screen feedback!
 
 //track taps to new widget
-widget.url="https://www.masjideraza.com/salahtime"
+widget.url="https://www.mis-productions.co.uk/hsmc/salahtime/monthly_salahtimes.html"
 
 
 let main = widget.addStack()
