@@ -1,7 +1,9 @@
 /*
   Salah Widget 
   
-  13/02/24 Enhanced offline view
+  If time is day ahead or behind - edit line 68 To adjust days -1 +1
+
+    13/02/24 Enhanced offline view
   
   v1.2 - 240122
   Developed by: Maqbul Yusuf
