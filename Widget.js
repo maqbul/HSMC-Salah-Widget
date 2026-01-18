@@ -2,6 +2,7 @@
   Salah Widget 
   
   If time is day ahead or behind - edit line 70 To adjust days -1 +1
+** If making adjustments to times +1 or -1 then also do same to main salah lockscreen file
 
     13/02/24 Enhanced offline view
   
