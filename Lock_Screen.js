@@ -63,7 +63,7 @@ var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
-var daynumber = Math.floor(diff / oneDay);-2//-1 or +1 if timing is offset a day or so
+var daynumber = Math.floor(diff / oneDay);-3//-1 or +1 if timing is offset a day or so
 
 console.log('Day number: ' + daynumber);
 
