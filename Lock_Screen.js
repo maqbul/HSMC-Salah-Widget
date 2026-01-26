@@ -59,7 +59,7 @@ let r = new Request(url)
 let getPrayer = await r.loadJSON()
 var str=JSON.stringify(getPrayer)
 
-var now = new Date();
+var now = new Date()-1;
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = now - start;
 var oneDay = 1000 * 60 * 60 * 24;
